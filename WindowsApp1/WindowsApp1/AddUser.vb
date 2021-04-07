@@ -10,10 +10,12 @@ Public Class AddUser
         '//pwを変数に代入
         Dim password As String = pw.Text
 
+        '//DB接続
         Dim sLogin As String = "server=localhost; database=BKSScheduledb; userid=BKSSCHEDULE; password=bksscd;"
 
         Dim Conn As New MySqlConnection(sLogin)
 
+        '//SQL文発行
         Dim sql As String = "insert into user values ('" + userId + "','" + password + "')"
 
         Dim adapter = New MySqlDataAdapter(sql, Conn)
