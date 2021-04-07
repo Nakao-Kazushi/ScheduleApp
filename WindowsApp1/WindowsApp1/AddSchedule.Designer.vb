@@ -23,6 +23,7 @@ Partial Class AddSchedule
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
         Me.SuspendLayout()
         '
         'Label1
@@ -34,11 +35,19 @@ Partial Class AddSchedule
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Label1"
         '
+        'VScrollBar1
+        '
+        Me.VScrollBar1.Location = New System.Drawing.Point(296, 68)
+        Me.VScrollBar1.Name = "VScrollBar1"
+        Me.VScrollBar1.Size = New System.Drawing.Size(21, 100)
+        Me.VScrollBar1.TabIndex = 1
+        '
         'AddSchedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.VScrollBar1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "AddSchedule"
         Me.Text = "Form3"
@@ -48,4 +57,5 @@ Partial Class AddSchedule
     End Sub
 
     Friend WithEvents Label1 As Label
+    Friend WithEvents VScrollBar1 As VScrollBar
 End Class
