@@ -58,9 +58,9 @@ Partial Class AddUser
         Me.password.AutoSize = True
         Me.password.Location = New System.Drawing.Point(178, 180)
         Me.password.Name = "password"
-        Me.password.Size = New System.Drawing.Size(67, 15)
+        Me.password.Size = New System.Drawing.Size(64, 15)
         Me.password.TabIndex = 3
-        Me.password.Text = "Password"
+        Me.password.Text = "パスワード"
         '
         'AddUserButton
         '
