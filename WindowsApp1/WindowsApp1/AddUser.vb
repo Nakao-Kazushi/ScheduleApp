@@ -19,8 +19,7 @@ Public Class AddUser
         If Not String.IsNullOrEmpty(userId) And Not String.IsNullOrEmpty(password) Then
 
             'メッセージボックスを表示する 
-            Dim result As DialogResult = MessageBox.Show("登録しますか？",
-                                             "質問",
+            Dim result As DialogResult = MessageBox.Show("登録しますか？", "質問",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Question,
                                              MessageBoxDefaultButton.Button2)
@@ -44,30 +43,35 @@ Public Class AddUser
                     Conn.Close()
                 End Try
 
+                MessageBox.Show("登録完了", "",
+                                MessageBoxButtons.OK, MessageBoxIcon.None)
+
             End If
 
         ElseIf userId = "" And password = "" Then
-            MessageBox.Show("入力エラーです。",
-                "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error)
+            MessageBox.Show("入力エラーです。", "エラー",
+                MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         ElseIf userId = "" Then
-            MessageBox.Show("ユーザーIDが未入力です。",
-                "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error)
+            MessageBox.Show("ユーザーIDが未入力です。", "エラー",
+                MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         ElseIf password = "" Then
-            MessageBox.Show("パスワードが未入力です。",
-                "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error)
+            MessageBox.Show("パスワードが未入力です。", "エラー",
+                MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
     End Sub
 
+    '戻るボタン押下時
     Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
+
+        '自画面を非表示
+        Me.Visible = False
+
+        'Login画面に戻る
+        Dim login As New Login
+        login.Show()
 
     End Sub
 End Class
