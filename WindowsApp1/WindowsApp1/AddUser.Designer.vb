@@ -58,9 +58,9 @@ Partial Class AddUser
         Me.password.AutoSize = True
         Me.password.Location = New System.Drawing.Point(178, 180)
         Me.password.Name = "password"
-        Me.password.Size = New System.Drawing.Size(67, 15)
+        Me.password.Size = New System.Drawing.Size(64, 15)
         Me.password.TabIndex = 3
-        Me.password.Text = "Password"
+        Me.password.Text = "パスワード"
         '
         'AddUserButton
         '
@@ -84,7 +84,7 @@ Partial Class AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(828, 450)
+        Me.ClientSize = New System.Drawing.Size(832, 453)
         Me.Controls.Add(Me.ReturnButton)
         Me.Controls.Add(Me.AddUserButton)
         Me.Controls.Add(Me.password)
@@ -92,7 +92,7 @@ Partial Class AddUser
         Me.Controls.Add(Me.pw)
         Me.Controls.Add(Me.user_Id)
         Me.Name = "AddUser"
-        Me.Text = "Form1"
+        Me.Text = "ユーザー登録画面"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
