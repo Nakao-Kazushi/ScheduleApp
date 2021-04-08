@@ -14,7 +14,7 @@ Public Class AddSchedule
         Dim Con As New MySqlConnection
         Con.ConnectionString = ConStr
         Con.Open()
-        Dim SqlStr = "SELECT * FROM users"
+        Dim SqlStr = "SELECT * FROM Schedule"
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
         Dim Ds As New DataSet
         Adapter.Fill(Ds)
