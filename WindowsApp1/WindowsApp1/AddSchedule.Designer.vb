@@ -31,6 +31,8 @@ Partial Class AddSchedule
         Me.NumericUpDown4 = New System.Windows.Forms.NumericUpDown()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,7 +50,7 @@ Partial Class AddSchedule
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(443, 214)
+        Me.Button1.Location = New System.Drawing.Point(455, 181)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 1
@@ -57,7 +59,7 @@ Partial Class AddSchedule
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(367, 120)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(368, 120)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {24, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(47, 22)
@@ -75,7 +77,7 @@ Partial Class AddSchedule
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(475, 125)
+        Me.Label1.Location = New System.Drawing.Point(484, 125)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(22, 15)
         Me.Label1.TabIndex = 5
@@ -83,7 +85,7 @@ Partial Class AddSchedule
         '
         'NumericUpDown3
         '
-        Me.NumericUpDown3.Location = New System.Drawing.Point(500, 120)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(522, 120)
         Me.NumericUpDown3.Maximum = New Decimal(New Integer() {24, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(47, 22)
@@ -91,18 +93,20 @@ Partial Class AddSchedule
         '
         'NumericUpDown4
         '
-        Me.NumericUpDown4.Location = New System.Drawing.Point(551, 120)
-        Me.NumericUpDown4.Maximum = New Decimal(New Integer() {24, 0, 0, 0})
+        Me.NumericUpDown4.Increment = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.NumericUpDown4.Location = New System.Drawing.Point(574, 120)
+        Me.NumericUpDown4.Maximum = New Decimal(New Integer() {60, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(47, 22)
         Me.NumericUpDown4.TabIndex = 7
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(386, 74)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(347, 73)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 22)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(130, 22)
         Me.DateTimePicker1.TabIndex = 8
+        Me.DateTimePicker1.Value = New Date(2021, 4, 8, 0, 0, 0, 0)
         '
         'DataGridView1
         '
@@ -111,14 +115,33 @@ Partial Class AddSchedule
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
+        Me.DataGridView1.Size = New System.Drawing.Size(645, 177)
         Me.DataGridView1.TabIndex = 9
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(511, 73)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(130, 22)
+        Me.DateTimePicker2.TabIndex = 10
+        Me.DateTimePicker2.Value = New Date(2021, 4, 8, 0, 0, 0, 0)
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(483, 77)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(22, 15)
+        Me.Label2.TabIndex = 11
+        Me.Label2.Text = "～"
         '
         'AddSchedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.NumericUpDown4)
@@ -149,4 +172,6 @@ Partial Class AddSchedule
     Friend WithEvents NumericUpDown4 As NumericUpDown
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label2 As Label
 End Class

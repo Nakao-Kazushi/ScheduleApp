@@ -32,10 +32,21 @@ Public Class AddSchedule
 
         Dim Ds As New DataSet
         Dim dt As New DataTable
-        Adapter.Fill(Ds)
         adapter2.Fill(dt)
+        Adapter.Fill(Ds)
+
         DataGridView1.DataSource = Ds.Tables(0)
         Con.Close()
+
+    End Sub
+
+    Private Sub MonthCalendar1_DateChanged(sender As Object, e As DateRangeEventArgs) Handles MonthCalendar1.DateChanged
+        Dim selected_startdate = MonthCalendar1.SelectionRange.Start.ToString()
+        Dim selected_enddate = MonthCalendar1.SelectionRange.End.ToString()
+        DateTimePicker1.Value = selected_startdate
+        DateTimePicker2.Value = selected_enddate
+
+
 
     End Sub
 End Class
