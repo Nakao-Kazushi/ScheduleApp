@@ -20,10 +20,19 @@ Public Class Login
             ' ユーザID未入力チェック
             If String.IsNullOrEmpty(txtUserId.Text) Then
                 errorMsg += "ユーザID" + Environment.NewLine
+                ' テキストボックスの枠線を赤くする
+                txtUserId.CustomBorderColor = Color.Red
+            Else
+                txtUserId.CustomBorderColor = Color.Gray
             End If
+
             ' パスワード未入力チェック
             If String.IsNullOrEmpty(txtPassword.Text) Then
                 errorMsg += "Password" + Environment.NewLine
+                ' テキストボックスの枠線を赤くする
+                txtPassword.CustomBorderColor = Color.Red
+            Else
+                txtPassword.CustomBorderColor = Color.Gray
             End If
             ' エラーが発生していない場合
             If String.IsNullOrEmpty(errorMsg) Then
