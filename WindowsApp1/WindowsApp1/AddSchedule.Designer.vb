@@ -83,7 +83,7 @@ Partial Class AddSchedule
         '
         'NumericUpDown3
         '
-        Me.NumericUpDown3.Location = New System.Drawing.Point(555, 120)
+        Me.NumericUpDown3.Location = New System.Drawing.Point(500, 120)
         Me.NumericUpDown3.Maximum = New Decimal(New Integer() {24, 0, 0, 0})
         Me.NumericUpDown3.Name = "NumericUpDown3"
         Me.NumericUpDown3.Size = New System.Drawing.Size(47, 22)
@@ -91,7 +91,7 @@ Partial Class AddSchedule
         '
         'NumericUpDown4
         '
-        Me.NumericUpDown4.Location = New System.Drawing.Point(502, 120)
+        Me.NumericUpDown4.Location = New System.Drawing.Point(551, 120)
         Me.NumericUpDown4.Maximum = New Decimal(New Integer() {24, 0, 0, 0})
         Me.NumericUpDown4.Name = "NumericUpDown4"
         Me.NumericUpDown4.Size = New System.Drawing.Size(47, 22)
