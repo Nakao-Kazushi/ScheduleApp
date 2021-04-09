@@ -102,7 +102,7 @@ Partial Class Login
         Me.txtPassword.Location = New System.Drawing.Point(131, 141)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(382, 22)
-        Me.txtPassword.TabIndex = 9
+        Me.txtPassword.TabIndex = 3
         '
         'txtUserId
         '
@@ -112,7 +112,7 @@ Partial Class Login
         Me.txtUserId.Location = New System.Drawing.Point(131, 70)
         Me.txtUserId.Name = "txtUserId"
         Me.txtUserId.Size = New System.Drawing.Size(382, 22)
-        Me.txtUserId.TabIndex = 9
+        Me.txtUserId.TabIndex = 1
         '
         'Login
         '

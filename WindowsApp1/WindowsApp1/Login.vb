@@ -6,9 +6,13 @@ Public Class Login
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim Conn As New MySqlConnection(LOGIN)
+
         ' 実行するSQL文を生成
-        Dim sql As String = "SELECT * FROM user WHERE USER_ID = '" + txtUserId.Text + "' AND PASSWORD = '" + txtPassword.Text + "';"
-        Dim adapter = New MySqlDataAdapter(sql, Conn)
+        Dim sql As String = "SELECT * FROM user WHERE USER_ID = @id AND PASSWORD = @pw;"
+        Dim cmd As New MySqlCommand(sql, Conn)
+        cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = txtUserId.Text
+        cmd.Parameters.Add("@pw", MySqlDbType.VarChar).Value = txtPassword.Text
+        Dim adapter = New MySqlDataAdapter(cmd)
         ' データテーブルを作成
         Dim dt As New DataTable
         Dim errorMsg As String = ""
@@ -36,6 +40,15 @@ Public Class Login
             End If
             ' エラーが発生していない場合
             If String.IsNullOrEmpty(errorMsg) Then
+                ' ユーザIDがメールアドレスかをチェックする
+                If Not CheckMailAddress(txtUserId.Text) Then
+                    MessageBox.Show("ユーザIDにはメールアドレスを入力してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    ' テキストボックスの枠線を赤くする
+                    txtUserId.CustomBorderColor = Color.Red
+                    Return
+                Else
+                    txtUserId.CustomBorderColor = Color.Gray
+                End If
                 ' ログイン成功
                 If dt.Rows.Count = 1 Then
                     MessageBox.Show("ログイン成功", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -43,7 +56,11 @@ Public Class Login
                     SaveLogin()
                     Dim addSchedule As AddSchedule = New AddSchedule()
                     ' スケジュール登録画面に遷移する
-                    addSchedule.Show()
+                    Me.Visible() = False
+                    addSchedule.ShowDialog()
+                    addSchedule.Dispose()
+                    Me.Visible() = True
+                    'addSchedule.Show()
                 Else
                     MessageBox.Show("そのユーザは登録されていません", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
@@ -62,7 +79,11 @@ Public Class Login
     Private Sub lnkAddUser_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkAddUser.LinkClicked
         ' 初回ログイン者用のユーザ登録ページに遷移させる
         Dim addUser As AddUser = New AddUser()
-        addUser.Show()
+        Me.Visible() = False
+        'addUser.Show()
+        addUser.ShowDialog()
+        addUser.Dispose()
+        Me.Visible() = True
     End Sub
 
     '''<summary>
@@ -90,4 +111,20 @@ Public Class Login
         ' パスワードをアスタリスク表示にする
         txtPassword.PasswordChar = "*"
     End Sub
+
+    ''' <summary>
+    ''' テキストがメールアドレスかを確認する 
+    ''' </summary>
+    ''' <param name="text"></param>
+    ''' <returns>メールアドレスならtrue,そうでないならfalse</returns>
+    Private Function CheckMailAddress(text As String) As Boolean
+        '検証する文字列
+        Dim address As String = text
+        Dim result As Boolean = False
+        'メールアドレスか調べる
+        Return System.Text.RegularExpressions.Regex.IsMatch(
+            address,
+            "\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase)
+    End Function
 End Class
