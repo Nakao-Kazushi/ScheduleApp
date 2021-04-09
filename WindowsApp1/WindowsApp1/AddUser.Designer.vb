@@ -22,27 +22,13 @@ Partial Class AddUser
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.user_Id = New System.Windows.Forms.TextBox()
-        Me.pw = New System.Windows.Forms.TextBox()
         Me.userId = New System.Windows.Forms.Label()
         Me.password = New System.Windows.Forms.Label()
         Me.AddUserButton = New System.Windows.Forms.Button()
         Me.ReturnButton = New System.Windows.Forms.Button()
+        Me.user_Id = New WindowsApp1.TextBoxEx()
+        Me.pw = New WindowsApp1.TextBoxEx()
         Me.SuspendLayout()
-        '
-        'user_Id
-        '
-        Me.user_Id.Location = New System.Drawing.Point(298, 116)
-        Me.user_Id.Name = "user_Id"
-        Me.user_Id.Size = New System.Drawing.Size(153, 22)
-        Me.user_Id.TabIndex = 0
-        '
-        'pw
-        '
-        Me.pw.Location = New System.Drawing.Point(298, 177)
-        Me.pw.Name = "pw"
-        Me.pw.Size = New System.Drawing.Size(153, 22)
-        Me.pw.TabIndex = 1
         '
         'userId
         '
@@ -80,28 +66,45 @@ Partial Class AddUser
         Me.ReturnButton.Text = "戻る"
         Me.ReturnButton.UseVisualStyleBackColor = True
         '
+        'user_Id
+        '
+        Me.user_Id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.user_Id.CustomBorderColor = System.Drawing.Color.Gray
+        Me.user_Id.Location = New System.Drawing.Point(298, 116)
+        Me.user_Id.Name = "user_Id"
+        Me.user_Id.Size = New System.Drawing.Size(153, 22)
+        Me.user_Id.TabIndex = 6
+        '
+        'pw
+        '
+        Me.pw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pw.CustomBorderColor = System.Drawing.Color.Gray
+        Me.pw.Location = New System.Drawing.Point(298, 177)
+        Me.pw.Name = "pw"
+        Me.pw.Size = New System.Drawing.Size(153, 22)
+        Me.pw.TabIndex = 7
+        '
         'AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(832, 453)
+        Me.ClientSize = New System.Drawing.Size(828, 450)
+        Me.Controls.Add(Me.pw)
+        Me.Controls.Add(Me.user_Id)
         Me.Controls.Add(Me.ReturnButton)
         Me.Controls.Add(Me.AddUserButton)
         Me.Controls.Add(Me.password)
         Me.Controls.Add(Me.userId)
-        Me.Controls.Add(Me.pw)
-        Me.Controls.Add(Me.user_Id)
         Me.Name = "AddUser"
         Me.Text = "ユーザー登録画面"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents user_Id As TextBox
-    Friend WithEvents pw As TextBox
     Friend WithEvents userId As Label
     Friend WithEvents password As Label
     Friend WithEvents AddUserButton As Button
     Friend WithEvents ReturnButton As Button
+    Friend WithEvents user_Id As TextBoxEx
+    Friend WithEvents pw As TextBoxEx
 End Class

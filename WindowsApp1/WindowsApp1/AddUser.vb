@@ -82,4 +82,8 @@ Public Class AddUser
         login.Show()
 
     End Sub
+
+    Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
