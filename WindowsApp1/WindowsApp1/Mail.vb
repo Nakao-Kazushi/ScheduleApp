@@ -3,16 +3,18 @@
 Public Class Mail
 
     'Private Sub Mail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    'MailSend("Toアドレス","Fromアドレス","パスワード","件名","本文")
-    'MailSend("k_nakao@bs-ja.co.jp", "bks.schedule.app@gmail.com", "bksscheduleapp", "test", "テスト送信です。")
+    'MailSend("送信先アドレス","bks.schedule.app@gmail.com","bksscheduleapp","件名","本文")
     'End Sub
 
-    'Private Sub MailSend("Toアドレス","Fromアドレス","パスワード","件名","本文")
+    'Private Sub MailSend("Toアドレス","件名","本文")
     Private Sub MailSend(ByVal ToAddress As String,
-                             ByVal FromAddress As String,
-                             ByVal FromAddressPass As String,
                              ByVal SendSubject As String,
                              ByVal SendMessage As String)
+
+        'FromメールアドレスとPW(定数)
+        Const FromAddress As String = "bks.schedule.app@gmail.com"
+        Const FromAddressPass As String = "bksscheduleapp"
+
         Dim msg As System.Net.Mail.MailMessage
         Try
             msg = New System.Net.Mail.MailMessage(FromAddress, ToAddress, SendSubject, SendMessage)

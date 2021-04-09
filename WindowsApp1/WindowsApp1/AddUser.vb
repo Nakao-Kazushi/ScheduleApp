@@ -63,7 +63,7 @@ Public Class AddUser
 
         ElseIf userId = "" And password = "" Then
 
-            ' テキストボックスの枠線を赤くする
+            ' テキストボックスの枠線を変える
             user_Id.CustomBorderColor = Color.Red
             pw.CustomBorderColor = Color.Red
 
