@@ -12,12 +12,12 @@ Public Class Mail
                              ByVal SendMessage As String)
 
         'FromメールアドレスとPW(定数)
-        Const FromAddress As String = "bks.schedule.app@gmail.com"
-        Const FromAddressPass As String = "bksscheduleapp"
+        Const FROMADDRESS As String = "bks.schedule.app@gmail.com"
+        Const FROMADDRESSPASS As String = "bksscheduleapp"
 
         Dim msg As System.Net.Mail.MailMessage
         Try
-            msg = New System.Net.Mail.MailMessage(FromAddress, ToAddress, SendSubject, SendMessage)
+            msg = New System.Net.Mail.MailMessage(FROMADDRESS, ToAddress, SendSubject, SendMessage)
         Catch ex As Exception
             MsgBox(ex.Message)
             Exit Sub
@@ -31,7 +31,7 @@ Public Class Mail
         sc.Port = 587
         sc.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network
         'ユーザー名,パスワード
-        sc.Credentials = New System.Net.NetworkCredential(FromAddress, FromAddressPass)
+        sc.Credentials = New System.Net.NetworkCredential(FROMADDRESS, FROMADDRESSPASS)
         'SSL
         sc.EnableSsl = True
         sc.Timeout = 10000
@@ -44,6 +44,5 @@ Public Class Mail
         msg.Dispose()
         MsgBox(res)
     End Sub
-
 
 End Class
