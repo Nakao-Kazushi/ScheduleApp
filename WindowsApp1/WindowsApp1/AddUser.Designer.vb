@@ -33,7 +33,7 @@ Partial Class AddUser
         'userId
         '
         Me.userId.AutoSize = True
-        Me.userId.Location = New System.Drawing.Point(178, 119)
+        Me.userId.Location = New System.Drawing.Point(110, 118)
         Me.userId.Name = "userId"
         Me.userId.Size = New System.Drawing.Size(69, 15)
         Me.userId.TabIndex = 2
@@ -42,7 +42,7 @@ Partial Class AddUser
         'password
         '
         Me.password.AutoSize = True
-        Me.password.Location = New System.Drawing.Point(178, 180)
+        Me.password.Location = New System.Drawing.Point(115, 179)
         Me.password.Name = "password"
         Me.password.Size = New System.Drawing.Size(64, 15)
         Me.password.TabIndex = 3
@@ -70,25 +70,25 @@ Partial Class AddUser
         '
         Me.user_Id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.user_Id.CustomBorderColor = System.Drawing.Color.Gray
-        Me.user_Id.Location = New System.Drawing.Point(298, 116)
+        Me.user_Id.Location = New System.Drawing.Point(234, 116)
         Me.user_Id.Name = "user_Id"
-        Me.user_Id.Size = New System.Drawing.Size(153, 22)
+        Me.user_Id.Size = New System.Drawing.Size(271, 22)
         Me.user_Id.TabIndex = 6
         '
         'pw
         '
         Me.pw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pw.CustomBorderColor = System.Drawing.Color.Gray
-        Me.pw.Location = New System.Drawing.Point(298, 177)
+        Me.pw.Location = New System.Drawing.Point(234, 177)
         Me.pw.Name = "pw"
-        Me.pw.Size = New System.Drawing.Size(153, 22)
+        Me.pw.Size = New System.Drawing.Size(271, 22)
         Me.pw.TabIndex = 7
         '
         'AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(828, 450)
+        Me.ClientSize = New System.Drawing.Size(832, 453)
         Me.Controls.Add(Me.pw)
         Me.Controls.Add(Me.user_Id)
         Me.Controls.Add(Me.ReturnButton)
