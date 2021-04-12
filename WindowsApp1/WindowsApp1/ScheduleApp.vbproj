@@ -135,11 +135,6 @@
     <Compile Include="BKSScheduledbDataSet.vb">
       <DependentUpon>BKSScheduledbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include=".Designer.vb">
-      <DependentUpon>Uppschedule.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Uppschedule.vb" />
     <Compile Include="Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
