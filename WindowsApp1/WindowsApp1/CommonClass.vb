@@ -29,7 +29,7 @@
     ''' 1.未入力の項目を返す
     ''' <para>2.未入力テキストボックスの枠線の色を赤くする</para>
     ''' </summary>
-    ''' <param name="errorText">errorMsgに格納したい値</param>
+    ''' <param name="errorText">errorMsgに格納したい文字列</param>
     ''' <param name="errorMsg">errorTextを文字列結合する</param>
     ''' <param name="textBoxEx">枠線色変更するTextBox</param>
     ''' <returns>String</returns>
