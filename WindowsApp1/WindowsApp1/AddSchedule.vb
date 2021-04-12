@@ -74,6 +74,12 @@ Public Class AddSchedule
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         Dim OrderNo As String, OrderDate As String, DueDate As String, ProductNo As String, selectedrowno As Integer
 
+        Dim uppfm As UppSchedule = New UppSchedule
+
+
+
+
+
         OrderNo = DataGridView1.CurrentRow.Cells(2).Value.ToString()
 
         OrderDate = DataGridView1.CurrentRow.Cells(3).Value.ToString()
