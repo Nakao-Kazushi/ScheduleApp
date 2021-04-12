@@ -10,23 +10,58 @@ Public Class AddUser
         '//pwを変数に代入
         Dim password As String = pw.Text
 
+        '//エラーチェック
+        Dim errorMsg As String = ""
+
         '//DB接続
         Dim sLogin As String = "server=localhost; database=BKSScheduledb; userid=BKSSCHEDULE; password=bksscd;"
 
         Dim Conn As New MySqlConnection(sLogin)
 
-        'userIdとpasswordがNullか空白ではない時
-        If Not String.IsNullOrEmpty(userId) And Not String.IsNullOrEmpty(password) Then
+        'userIdがNullか空白ではない時
+        If String.IsNullOrEmpty(userId) Then
+
+            errorMsg += "ユーザID" + Environment.NewLine
+
+            ' テキストボックスの枠線を変える
+            user_Id.CustomBorderColor = Color.Red
+        Else
+            user_Id.CustomBorderColor = Color.Gray
+        End If
+
+        'passwordがNullか空白ではない時
+        If String.IsNullOrEmpty(password) Then
+
+            errorMsg += "Password" + Environment.NewLine
+
+            ' テキストボックスの枠線を変える
+            pw.CustomBorderColor = Color.Red
+        Else
+            pw.CustomBorderColor = Color.Gray
+        End If
+
+
+        If String.IsNullOrEmpty(errorMsg) Then
 
             'メールアドレス形式か調べる
-            If System.Text.RegularExpressions.Regex.IsMatch(user_Id.Text, "\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z",
+            If Not System.Text.RegularExpressions.Regex.IsMatch(user_Id.Text, "\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z",
                                                     System.Text.RegularExpressions.RegexOptions.IgnoreCase) Then
+
+                ' テキストボックスの枠線を変える
+                user_Id.CustomBorderColor = Color.Red
+
+                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            Else
+                ' テキストボックスの枠線を変える
+                user_Id.CustomBorderColor = Color.Gray
 
                 'メッセージボックスを表示する 
                 Dim result As DialogResult = MessageBox.Show("登録しますか？", "質問",
-                                                     MessageBoxButtons.YesNo,
-                                                     MessageBoxIcon.Question,
-                                                     MessageBoxDefaultButton.Button2)
+                                                         MessageBoxButtons.YesNo,
+                                                         MessageBoxIcon.Question,
+                                                         MessageBoxDefaultButton.Button2)
 
                 'メッセージボックスで「はい」を選択
                 If result = DialogResult.Yes Then
@@ -51,42 +86,12 @@ Public Class AddUser
                     MessageBox.Show("登録完了", "",
                                         MessageBoxButtons.OK, MessageBoxIcon.None)
                 End If
-
-            Else
-                ' テキストボックスの枠線を変える
-                pw.CustomBorderColor = Color.Gray
-                user_Id.CustomBorderColor = Color.Red
-
-                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
 
-        ElseIf userId = "" And password = "" Then
+        Else
+            ' 未入力エラーメッセージを表示
+            MessageBox.Show(errorMsg + "が未入力です", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-            ' テキストボックスの枠線を変える
-            user_Id.CustomBorderColor = Color.Red
-            pw.CustomBorderColor = Color.Red
-
-            MessageBox.Show("入力エラーです。", "エラー",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        ElseIf userId = "" Then
-
-            ' テキストボックスの枠線を変える
-            pw.CustomBorderColor = Color.Gray
-            user_Id.CustomBorderColor = Color.Red
-
-            MessageBox.Show("ユーザーIDが未入力です。", "エラー",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        ElseIf password = "" Then
-
-            ' テキストボックスの枠線を変える
-            user_Id.CustomBorderColor = Color.Gray
-            pw.CustomBorderColor = Color.Red
-
-            MessageBox.Show("パスワードが未入力です。", "エラー",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
     End Sub
