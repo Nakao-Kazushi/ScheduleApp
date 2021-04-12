@@ -2,10 +2,6 @@
 
 Public Class Mail
 
-    'Private Sub Mail_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    'MailSend("送信先アドレス","bks.schedule.app@gmail.com","bksscheduleapp","件名","本文")
-    'End Sub
-
     'Private Sub MailSend("Toアドレス","件名","本文")
     Private Sub MailSend(ByVal ToAddress As String,
                              ByVal SendSubject As String,
