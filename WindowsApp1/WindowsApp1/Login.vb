@@ -1,11 +1,12 @@
 ﻿Imports MySql.Data.MySqlClient
 
+
 Public Class Login
-    ' DB接続情報のコンストラクタ
-    Const LOGIN As String = "server=localhost; database=BKSScheduledb; userid=BKSSCHEDULE; password=bksscd;"
+    ' DB接続情報を取得する
+    Dim Login As String = CommonClass.ConnectionString()
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Dim Conn As New MySqlConnection(LOGIN)
+        Dim Conn As New MySqlConnection(Login)
 
         ' 実行するSQL文を生成
         Dim sql As String = "SELECT * FROM user WHERE USER_ID = @id AND PASSWORD = @pw;"
@@ -21,27 +22,17 @@ Public Class Login
             Conn.Open()
             ' SQL文の実行結果をデータテーブルに格納する
             adapter.Fill(dt)
-            ' ユーザID未入力チェック
-            If String.IsNullOrEmpty(txtUserId.Text) Then
-                errorMsg += "ユーザID" + Environment.NewLine
-                ' テキストボックスの枠線を赤くする
-                txtUserId.CustomBorderColor = Color.Red
-            Else
-                txtUserId.CustomBorderColor = Color.Gray
-            End If
 
-            ' パスワード未入力チェック
-            If String.IsNullOrEmpty(txtPassword.Text) Then
-                errorMsg += "Password" + Environment.NewLine
-                ' テキストボックスの枠線を赤くする
-                txtPassword.CustomBorderColor = Color.Red
-            Else
-                txtPassword.CustomBorderColor = Color.Gray
-            End If
+            ' ユーザIDの未入力チェックを実施
+            errorMsg = CommonClass.NotInputError("ユーザID", errorMsg, txtUserId)
+
+            ' Passwordの未入力チェックを実施
+            errorMsg = CommonClass.NotInputError("Password", errorMsg, txtPassword)
+
             ' エラーが発生していない場合
             If String.IsNullOrEmpty(errorMsg) Then
                 ' ユーザIDがメールアドレスかをチェックする
-                If Not CheckMailAddress(txtUserId.Text) Then
+                If Not CommonClass.CheckMailAddress(txtUserId.Text) Then
                     MessageBox.Show("ユーザIDにはメールアドレスを入力してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     ' テキストボックスの枠線を赤くする
                     txtUserId.CustomBorderColor = Color.Red
@@ -111,20 +102,4 @@ Public Class Login
         ' パスワードをアスタリスク表示にする
         txtPassword.PasswordChar = "*"
     End Sub
-
-    ''' <summary>
-    ''' テキストがメールアドレスかを確認する 
-    ''' </summary>
-    ''' <param name="text"></param>
-    ''' <returns>メールアドレスならtrue,そうでないならfalse</returns>
-    Private Function CheckMailAddress(text As String) As Boolean
-        '検証する文字列
-        Dim address As String = text
-        Dim result As Boolean = False
-        'メールアドレスか調べる
-        Return System.Text.RegularExpressions.Regex.IsMatch(
-            address,
-            "\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z",
-            System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-    End Function
 End Class

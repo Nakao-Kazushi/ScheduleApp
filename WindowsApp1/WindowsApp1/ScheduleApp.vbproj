@@ -134,6 +134,7 @@
       <DependentUpon>AddUser.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CommonClass.vb" />
     <Compile Include="Mail.Designer.vb">
       <DependentUpon>Mail.vb</DependentUpon>
     </Compile>
