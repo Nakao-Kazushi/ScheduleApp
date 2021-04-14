@@ -8,11 +8,13 @@ Public Class AddSchedule
 
         Dim selected_enddate = Format(DateTimePicker2.Value, "yyyy/MM/dd")
 
-        Dim selected_starttime = NumericUpDown1.Value.ToString() + ":" + NumericUpDown2.Value.ToString()
+        Dim selected_starttime = ComboBox1.Text + ":" + ComboBox2.Text
 
-        Dim selected_endtime = NumericUpDown3.Value.ToString() + ":" + NumericUpDown4.Value.ToString()
+        Dim selected_endtime = ComboBox3.Text + ":" + ComboBox4.Text
 
         Dim ins_id = Double.Parse(Format(Now(), "hhmmssfff")).ToString()
+
+        Dim event_naiyou = TextBox1.Text
 
         Dim Builder = New MySqlConnectionStringBuilder()
         ' データベースに接続するために必要な情報をBuilderに与える
@@ -27,7 +29,7 @@ Public Class AddSchedule
         Con.Open()
 
         Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間 from Schedule"
-        Dim SqlStr2 = "insert into Schedule values('" + ins_id + "','" + selected_endtime + "','" + selected_startdate + "','" + selected_starttime + "','" + selected_endtime + "','" + selected_enddate + "')"
+        Dim SqlStr2 = "insert into Schedule values('" + ins_id + "','" + selected_endtime + "','" + selected_startdate + "','" + selected_starttime + "','" + selected_endtime + "','" + selected_enddate + "','" + event_naiyou + "')"
 
         Dim adapter2 = New MySqlDataAdapter(SqlStr2, Con)
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
@@ -59,7 +61,7 @@ Public Class AddSchedule
         Dim Con As New MySqlConnection
         Con.ConnectionString = ConStr
         Con.Open()
-        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間 from Schedule
+        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id from Schedule
         where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "'"
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
         Dim Ds As New DataSet
@@ -72,15 +74,21 @@ Public Class AddSchedule
     End Sub
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        Dim OrderNo As String, OrderDate As String, DueDate As String, ProductNo As String, selectedrowno As Integer
 
-        Dim uppfm As Form1 = New Form1
+        Dim OrderNo As String,
+            OrderDate As String,
+            DueDate As String,
+            ProductNo As String,
+            selectedrowno As Integer
 
 
-        uppfm.ShowDialog()
+        Dim uppfm As UppSchedule = New UppSchedule
 
 
-        OrderNo = DataGridView1.CurrentRow.Cells(2).Value.ToString()
+        uppfm.ShowDialog(Me)
+
+
+
 
         OrderDate = DataGridView1.CurrentRow.Cells(3).Value.ToString()
 
@@ -100,4 +108,49 @@ Public Class AddSchedule
 
 
     End Sub
+
+    Public Property startdateproperty() As String
+        Get
+            Return DataGridView1.CurrentRow.Cells(1).Value.ToString()
+        End Get
+        Set(Value As String)
+            DataGridView1.CurrentRow.Cells(1).Value = Value
+        End Set
+    End Property
+    Public Property enddateproperty() As String
+        Get
+            Return DataGridView1.CurrentRow.Cells(2).Value.ToString()
+        End Get
+        Set(Value As String)
+            DataGridView1.CurrentRow.Cells(2).Value = Value
+        End Set
+    End Property
+    Public Property starttimeproperty() As String
+        Get
+            Return DataGridView1.CurrentRow.Cells(3).Value.ToString()
+        End Get
+        Set(Value As String)
+            DataGridView1.CurrentRow.Cells(3).Value = Value
+        End Set
+    End Property
+    Public Property endtimeproperty() As String
+
+        Get
+            Return DataGridView1.CurrentRow.Cells(4).Value.ToString()
+        End Get
+        Set(Value As String)
+            DataGridView1.CurrentRow.Cells(4).Value = Value
+        End Set
+    End Property
+    Public Property event_nameproperty() As String
+        Get
+            Return DataGridView1.CurrentRow.Cells(5).Value.ToString()
+        End Get
+        Set(Value As String)
+            DataGridView1.CurrentRow.Cells(5).Value = Value
+        End Set
+    End Property
+
+
+
 End Class
