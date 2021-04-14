@@ -28,7 +28,7 @@ Public Class AddSchedule
         Con.ConnectionString = ConStr
         Con.Open()
 
-        Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間 from Schedule"
+        Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間, event_name As イベント,insert_id from Schedule"
         Dim SqlStr2 = "insert into Schedule values('" + ins_id + "','" + selected_endtime + "','" + selected_startdate + "','" + selected_starttime + "','" + selected_endtime + "','" + selected_enddate + "','" + event_naiyou + "')"
 
         Dim adapter2 = New MySqlDataAdapter(SqlStr2, Con)
@@ -75,28 +75,13 @@ Public Class AddSchedule
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
-        Dim OrderNo As String,
-            OrderDate As String,
-            DueDate As String,
-            ProductNo As String,
-            selectedrowno As Integer
-
-
         Dim uppfm As UppSchedule = New UppSchedule
-
 
         uppfm.ShowDialog(Me)
 
+        Dim ins_id = DataGridView1.CurrentRow.Cells(6).Value.ToString()
 
-
-
-        OrderDate = DataGridView1.CurrentRow.Cells(3).Value.ToString()
-
-        DueDate = DataGridView1.CurrentRow.Cells(4).Value.ToString()
-
-        ProductNo = DataGridView1.CurrentRow.Cells(5).Value.ToString()
-
-        selectedrowno = DataGridView1.CurrentRow.Index
+        Dim selectedrowno = DataGridView1.CurrentRow.Index
 
         Dim dgv As DataGridView = CType(sender, DataGridView)
 
@@ -105,6 +90,28 @@ Public Class AddSchedule
             MessageBox.Show(selectedrowno)
 
         End If
+
+        Dim selected_startdate = MonthCalendar1.SelectionRange.Start.ToString()
+        Dim selected_enddate = MonthCalendar1.SelectionRange.End.ToString()
+
+        Dim Builder = New MySqlConnectionStringBuilder()
+        ' データベースに接続するために必要な情報をBuilderに与える
+        Builder.Server = "localhost"
+        Builder.Port = 3306
+        Builder.UserID = "BKSSCHEDULE"
+        Builder.Password = "bksscd"
+        Builder.Database = "BKSSCHEDULEdb"
+        Dim ConStr = Builder.ToString()
+        Dim Con As New MySqlConnection
+        Con.ConnectionString = ConStr
+        Con.Open()
+        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id from Schedule
+        where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "'"
+        Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
+        Dim Ds As New DataSet
+        Adapter.Fill(Ds)
+        DataGridView1.DataSource = Ds.Tables(0)
+        Con.Close()
 
 
     End Sub
@@ -148,6 +155,14 @@ Public Class AddSchedule
         End Get
         Set(Value As String)
             DataGridView1.CurrentRow.Cells(5).Value = Value
+        End Set
+    End Property
+    Public Property insert_idproperty() As String
+        Get
+            Return DataGridView1.CurrentRow.Cells(6).Value.ToString()
+        End Get
+        Set(Value As String)
+            DataGridView1.CurrentRow.Cells(6).Value = Value
         End Set
     End Property
 
