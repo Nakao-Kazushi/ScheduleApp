@@ -27,6 +27,7 @@ Partial Class AddSchedule
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -34,12 +35,12 @@ Partial Class AddSchedule
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.Column1 = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MonthCalendar1
         '
+        Me.MonthCalendar1.ForeColor = System.Drawing.Color.Black
         Me.MonthCalendar1.Location = New System.Drawing.Point(75, 50)
         Me.MonthCalendar1.Name = "MonthCalendar1"
         Me.MonthCalendar1.ShowToday = False
@@ -83,13 +84,23 @@ Partial Class AddSchedule
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersWidth = 4
+        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(901, 357)
         Me.DataGridView1.TabIndex = 9
         Me.DataGridView1.VirtualMode = True
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = ""
+        Me.Column1.MinimumWidth = 6
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Text = "詳細"
+        Me.Column1.UseColumnTextForButtonValue = True
+        Me.Column1.Width = 45
         '
         'DateTimePicker2
         '
@@ -155,16 +166,6 @@ Partial Class AddSchedule
         Me.ComboBox4.Size = New System.Drawing.Size(47, 23)
         Me.ComboBox4.TabIndex = 16
         Me.ComboBox4.Text = "00"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = ""
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Text = "詳細"
-        Me.Column1.UseColumnTextForButtonValue = True
-        Me.Column1.Width = 45
         '
         'AddSchedule
         '

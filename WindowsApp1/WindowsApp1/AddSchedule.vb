@@ -15,7 +15,7 @@ Public Class AddSchedule
         Con.ConnectionString = ConStr
         Con.Open()
 
-        Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間, event_name As イベント,insert_id from Schedule where regist_startdate >= CURDATE() order by regist_startdate asc"
+        Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間, event_name As イベント,insert_id As 登録ID from Schedule where regist_startdate >= CURDATE() order by regist_startdate asc"
 
 
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
@@ -26,6 +26,7 @@ Public Class AddSchedule
 
         DataGridView1.DataSource = Ds.Tables(0)
         Con.Close()
+
     End Sub
 
     '登録ボタン押下時
@@ -56,7 +57,7 @@ Public Class AddSchedule
         Con.ConnectionString = ConStr
         Con.Open()
 
-        Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間, event_name As イベント,insert_id from Schedule where regist_startdate >= CURDATE() order by regist_startdate asc"
+        Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間, event_name As イベント,insert_id As 登録ID from Schedule where regist_startdate >= CURDATE() order by regist_startdate asc"
         Dim SqlStr2 = "insert into Schedule values('" + ins_id + "','" + selected_endtime + "','" + selected_startdate + "','" + selected_starttime + "','" + selected_endtime + "','" + selected_enddate + "','" + event_naiyou + "')"
 
         Dim adapter2 = New MySqlDataAdapter(SqlStr2, Con)
@@ -96,7 +97,7 @@ Public Class AddSchedule
         Dim Con As New MySqlConnection
         Con.ConnectionString = ConStr
         Con.Open()
-        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id from Schedule
+        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id As 登録ID from Schedule
         where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "'order by regist_startdate asc"
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
         Dim Ds As New DataSet
@@ -104,8 +105,6 @@ Public Class AddSchedule
         DataGridView1.DataSource = Ds.Tables(0)
 
         Con.Close()
-
-
 
     End Sub
 
@@ -133,14 +132,13 @@ Public Class AddSchedule
         Dim Con As New MySqlConnection
         Con.ConnectionString = ConStr
         Con.Open()
-        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id from Schedule
+        Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id As 登録ID  from Schedule
         where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "'order by regist_startdate asc"
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
         Dim Ds As New DataSet
         Adapter.Fill(Ds)
         DataGridView1.DataSource = Ds.Tables(0)
         Con.Close()
-
 
     End Sub
 
@@ -199,6 +197,5 @@ Public Class AddSchedule
             DataGridView1.CurrentRow.Cells(6).Value = Value
         End Set
     End Property
-
 
 End Class

@@ -56,39 +56,46 @@ Public Class UppSchedule
 
     End Sub
 
+    '削除ボタン押下時
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
 
-        ''「AddSchedule」画面のテーブル選択列のInsert_idプロパティ取得
-        Dim ins_id = AddSchedule.insert_idproperty
+        Dim result As DialogResult = MessageBox.Show("削除しますか？", "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
 
-        'DB接続
-        Dim Builder = New MySqlConnectionStringBuilder()
-        ' データベースに接続するために必要な情報をBuilderに与える
-        Builder.Server = "localhost"
-        Builder.Port = 3306
-        Builder.UserID = "BKSSCHEDULE"
-        Builder.Password = "bksscd"
-        Builder.Database = "BKSSCHEDULEdb"
-        Dim ConStr = Builder.ToString()
-        Dim Con As New MySqlConnection
-        Con.ConnectionString = ConStr
-        Con.Open()
+        'メッセージボックスで「はい」を選択
+        If result = DialogResult.Yes Then
 
-        Dim sqlStr = "Delete from Schedule where insert_id = '" + ins_id + "'"
+            '「AddSchedule」画面のテーブル選択列のInsert_idプロパティ取得
+            Dim ins_id = AddSchedule.insert_idproperty
 
-        Dim Adapter = New MySqlDataAdapter(sqlStr, Con)
+            'DB接続
+            Dim Builder = New MySqlConnectionStringBuilder()
+            ' データベースに接続するために必要な情報をBuilderに与える
+            Builder.Server = "localhost"
+            Builder.Port = 3306
+            Builder.UserID = "BKSSCHEDULE"
+            Builder.Password = "bksscd"
+            Builder.Database = "BKSSCHEDULEdb"
+            Dim ConStr = Builder.ToString()
+            Dim Con As New MySqlConnection
+            Con.ConnectionString = ConStr
+            Con.Open()
 
-        Dim Ds As New DataSet
+            Dim sqlStr = "Delete from Schedule where insert_id = '" + ins_id + "'"
 
-        Adapter.Fill(Ds)
+            Dim Adapter = New MySqlDataAdapter(sqlStr, Con)
 
-        Con.Close()
+            Dim Ds As New DataSet
 
-        'フォームを閉じる
-        Me.Close()
+            Adapter.Fill(Ds)
 
+            Con.Close()
+
+            'フォームを閉じる
+            Me.Close()
+
+        End If
     End Sub
-
+    'キャンセルボタン押下時
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
         'フォームを閉じる
