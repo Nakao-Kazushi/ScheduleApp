@@ -54,28 +54,7 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property userId() As String
-            Get
-                Return CType(Me("userId"),String)
-            End Get
-            Set
-                Me("userId") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property password() As String
-            Get
-                Return CType(Me("password"),String)
-            End Get
-            Set
-                Me("password") = value
-            End Set
+main
         End Property
     End Class
 End Namespace
