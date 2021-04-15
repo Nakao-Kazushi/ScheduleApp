@@ -2,18 +2,20 @@
 
 Public Class Mail
 
-    'Private Sub MailSend("Toアドレス","件名","本文")
-    Private Sub MailSend(ByVal ToAddress As String,
-                             ByVal SendSubject As String,
-                             ByVal SendMessage As String)
+    'Private Sub MailSend("Toアドレス")
+    Public Sub MailSend(ByVal ToAddress As String, ByVal Send_Message As String)
 
-        'FromメールアドレスとPW(定数)
-        Const FROMADDRESS As String = "bks.schedule.app@gmail.com"
-        Const FROMADDRESSPASS As String = "bksscheduleapp"
+        Const FROMADDRESS As String = "bks.schedule.app@gmail.com"          'Fromアドレス
+        Const FROMADDRESSPASS As String = "bksscheduleapp"                  'パスワード
+        Const SENDSUBJECT As String = "パスワード再設定"                    '件名
+        Dim SendMessage As String = "
+        パスワード再設定には、以下の認証コードを入力してください。           
+                                    
+        認証コード：" + Send_Message                                        '本文
 
         Dim msg As System.Net.Mail.MailMessage
         Try
-            msg = New System.Net.Mail.MailMessage(FROMADDRESS, ToAddress, SendSubject, SendMessage)
+            msg = New System.Net.Mail.MailMessage(FROMADDRESS, ToAddress, SENDSUBJECT, SendMessage)
         Catch ex As Exception
             MsgBox(ex.Message)
             Exit Sub
@@ -33,7 +35,7 @@ Public Class Mail
         sc.Timeout = 10000
         Try
             sc.Send(msg)
-            res = "送信に成功しました。"
+            res = "メールを送信しました。"
         Catch ex As SmtpException
             res = ex.Message
         End Try

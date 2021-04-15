@@ -30,7 +30,7 @@ Partial Class Mail
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Name = "Mail"
-        Me.Text = "Form1"
+        Me.Text = "Mail"
         Me.ResumeLayout(False)
 
     End Sub

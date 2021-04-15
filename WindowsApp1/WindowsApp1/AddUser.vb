@@ -14,9 +14,7 @@ Public Class AddUser
         Dim errorMsg As String = ""
 
         '//DB接続
-        Dim sLogin As String = "server=localhost; database=BKSScheduledb; userid=BKSSCHEDULE; password=bksscd;"
-
-        Dim Conn As New MySqlConnection(sLogin)
+        Const sLogin As String = "server=localhost; database=BKSScheduledb; userid=BKSSCHEDULE; password=bksscd;"
 
         'userIdがNullか空白ではない時
         If String.IsNullOrEmpty(userId) Then
@@ -66,25 +64,32 @@ Public Class AddUser
                 'メッセージボックスで「はい」を選択
                 If result = DialogResult.Yes Then
 
+                    Dim Conn As New MySqlConnection(sLogin)
+
                     '//SQL文発行
-                    Dim sql As String = "insert into user values ('@id','@pw')"
+                    Dim sql As String = "insert into user values (@id,@pw)"
 
                     Dim cmd As New MySqlCommand(sql, Conn)
                     cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = user_Id.Text
                     cmd.Parameters.Add("@pw", MySqlDbType.VarChar).Value = pw.Text
+
                     Dim adapter = New MySqlDataAdapter(cmd)
+
+                    Dim dt As New DataTable
 
                     Try
                         Conn.Open()
+                        adapter.Fill(dt)
+
+                        MessageBox.Show("登録完了", "",
+                                        MessageBoxButtons.OK, MessageBoxIcon.None)
 
                     Catch mse As MySqlException
                         MessageBox.Show("Error:" + mse.Message)
+
                     Finally
                         Conn.Close()
                     End Try
-
-                    MessageBox.Show("登録完了", "",
-                                        MessageBoxButtons.OK, MessageBoxIcon.None)
                 End If
             End If
 
@@ -105,10 +110,6 @@ Public Class AddUser
         'Login画面に戻る
         Dim login As New Login
         login.Show()
-
-    End Sub
-
-    Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
