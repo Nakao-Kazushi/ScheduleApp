@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Form1
+Public Class PwReset
 
     Private Sub PwResetButton_Click(sender As Object, e As EventArgs) Handles PwResetButton.Click
 
@@ -32,7 +32,6 @@ Public Class Form1
 
                 MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
-
             Else
                 ' テキストボックスの枠線を変える
                 TextUserId.CustomBorderColor = Color.Gray
@@ -162,6 +161,14 @@ Public Class Form1
                     Finally
                         Conn.Close()
                     End Try
+
+                    '自画面を非表示
+                    Me.Visible = False
+
+                    'Login画面に戻る
+                    Dim login As New Login
+                    login.Show()
+
                 End If
             End If
 

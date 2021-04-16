@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class PwReset
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
@@ -84,7 +84,7 @@ Partial Class Form1
         Me.TextUserId.Size = New System.Drawing.Size(271, 22)
         Me.TextUserId.TabIndex = 7
         '
-        'Form1
+        'PwReset
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -95,7 +95,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PwResetButton)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "PwReset"
         Me.Text = "パスワード再設定画面"
         Me.ResumeLayout(False)
         Me.PerformLayout()
