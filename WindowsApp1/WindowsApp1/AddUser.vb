@@ -105,11 +105,7 @@ Public Class AddUser
     Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
 
         '自画面を非表示
-        Me.Visible = False
-
-        'Login画面に戻る
-        Dim login As New Login
-        login.Show()
+        Me.Close()
 
     End Sub
 End Class
