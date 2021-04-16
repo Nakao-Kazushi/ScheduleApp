@@ -134,7 +134,7 @@
       <DependentUpon>AddUser.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
- main
+    <Compile Include="Mail.Designer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.vb">
@@ -176,7 +176,6 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
-main
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
