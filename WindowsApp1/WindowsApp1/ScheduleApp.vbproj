@@ -152,6 +152,15 @@
     <Compile Include="AddSchedule.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CommonClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UppSchedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UppSchedule.Designer.vb">
+      <DependentUpon>UppSchedule.vb</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -193,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TextBoxEx.resx">
       <DependentUpon>TextBoxEx.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UppSchedule.resx">
+      <DependentUpon>UppSchedule.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
