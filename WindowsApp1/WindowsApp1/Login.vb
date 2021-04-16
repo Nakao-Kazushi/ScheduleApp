@@ -102,4 +102,15 @@ Public Class Login
         ' パスワードをアスタリスク表示にする
         txtPassword.PasswordChar = "*"
     End Sub
+
+    ' userIdのプロパティ
+    Public Property userIdProperty() As String
+        Get
+            Return txtUserId.Text
+        End Get
+        Set(Value As String)
+            txtUserId.Text = Value
+        End Set
+    End Property
+
 End Class
