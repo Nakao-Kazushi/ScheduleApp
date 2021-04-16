@@ -14,10 +14,7 @@ Public Class AddSchedule
         Dim Con As New MySqlConnection
         Con.ConnectionString = ConStr
         Con.Open()
-
         Dim SqlStr = "select regist_startdate as 開始日,regist_enddate as 終了日,regist_starttime as 開始時間,regist_endtime as 終了時間, event_name As イベント,insert_id As 登録ID from Schedule where regist_startdate >= CURDATE() order by regist_startdate asc"
-
-
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
 
         Dim Ds As New DataSet
