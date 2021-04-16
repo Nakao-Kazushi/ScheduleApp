@@ -141,7 +141,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mail.Designer.vb">
-      <DependentUpon>Mail.vb</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mail.vb">
       <SubType>Form</SubType>
@@ -157,6 +157,15 @@
     </Compile>
     <Compile Include="AddSchedule.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonClass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UppSchedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UppSchedule.Designer.vb">
+      <DependentUpon>UppSchedule.vb</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -179,6 +188,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddSchedule.resx">
+      <DependentUpon>AddSchedule.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
@@ -200,8 +212,22 @@
     <EmbeddedResource Include="TextBoxEx.resx">
       <DependentUpon>TextBoxEx.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UppSchedule.resx">
+      <DependentUpon>UppSchedule.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BKSScheduledbDataSet.xsc">
+      <DependentUpon>BKSScheduledbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BKSScheduledbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BKSScheduledbDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BKSScheduledbDataSet.xss">
+      <DependentUpon>BKSScheduledbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
