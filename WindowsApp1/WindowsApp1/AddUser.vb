@@ -84,6 +84,9 @@ Public Class AddUser
                         MessageBox.Show("登録完了", "",
                                         MessageBoxButtons.OK, MessageBoxIcon.None)
 
+                        '自画面を非表示
+                        Me.Close()
+
                     Catch mse As MySqlException
                         MessageBox.Show("Error:" + mse.Message)
 
@@ -108,4 +111,10 @@ Public Class AddUser
         Me.Close()
 
     End Sub
+
+    Private Sub pw_TextChanged(sender As Object, e As EventArgs) Handles pw.TextChanged
+        ' パスワードをアスタリスク表示にする
+        pw.PasswordChar = "*"
+    End Sub
+
 End Class

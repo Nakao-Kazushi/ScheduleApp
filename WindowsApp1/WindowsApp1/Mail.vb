@@ -40,7 +40,7 @@ Public Class Mail
             res = ex.Message
         End Try
         msg.Dispose()
-        MsgBox(res)
+        MsgBox(res, MessageBoxButtons.OK)
     End Sub
 
 End Class
