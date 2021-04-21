@@ -22,40 +22,22 @@ Partial Class PwReset
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PwResetButton = New System.Windows.Forms.Button()
         Me.PwUpdateButton = New System.Windows.Forms.Button()
         Me.TextPw = New WindowsApp1.TextBoxEx()
-        Me.TextUserId = New WindowsApp1.TextBoxEx()
+        Me.TextPw2 = New WindowsApp1.TextBoxEx()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextUserId = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(106, 113)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 15)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "ユーザーID"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(106, 219)
+        Me.Label2.Location = New System.Drawing.Point(121, 103)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 15)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Password"
-        '
-        'PwResetButton
-        '
-        Me.PwResetButton.Location = New System.Drawing.Point(563, 160)
-        Me.PwResetButton.Name = "PwResetButton"
-        Me.PwResetButton.Size = New System.Drawing.Size(94, 42)
-        Me.PwResetButton.TabIndex = 4
-        Me.PwResetButton.Text = "メール送信"
-        Me.PwResetButton.UseVisualStyleBackColor = True
         '
         'PwUpdateButton
         '
@@ -70,41 +52,58 @@ Partial Class PwReset
         '
         Me.TextPw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextPw.CustomBorderColor = System.Drawing.Color.Gray
-        Me.TextPw.Location = New System.Drawing.Point(216, 217)
+        Me.TextPw.Location = New System.Drawing.Point(229, 101)
         Me.TextPw.Name = "TextPw"
         Me.TextPw.Size = New System.Drawing.Size(271, 22)
         Me.TextPw.TabIndex = 8
         '
+        'TextPw2
+        '
+        Me.TextPw2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextPw2.CustomBorderColor = System.Drawing.Color.Gray
+        Me.TextPw2.Location = New System.Drawing.Point(229, 187)
+        Me.TextPw2.Name = "TextPw2"
+        Me.TextPw2.Size = New System.Drawing.Size(271, 22)
+        Me.TextPw2.TabIndex = 9
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(99, 189)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(112, 15)
+        Me.Label1.TabIndex = 10
+        Me.Label1.Text = "Password再入力"
+        '
         'TextUserId
         '
-        Me.TextUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextUserId.CustomBorderColor = System.Drawing.Color.Gray
-        Me.TextUserId.Location = New System.Drawing.Point(216, 111)
+        Me.TextUserId.Location = New System.Drawing.Point(2, 433)
         Me.TextUserId.Name = "TextUserId"
-        Me.TextUserId.Size = New System.Drawing.Size(271, 22)
-        Me.TextUserId.TabIndex = 7
+        Me.TextUserId.Size = New System.Drawing.Size(100, 22)
+        Me.TextUserId.TabIndex = 11
+        Me.TextUserId.Visible = False
         '
         'PwReset
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.TextPw)
         Me.Controls.Add(Me.TextUserId)
-        Me.Controls.Add(Me.PwUpdateButton)
-        Me.Controls.Add(Me.PwResetButton)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TextPw2)
+        Me.Controls.Add(Me.TextPw)
+        Me.Controls.Add(Me.PwUpdateButton)
+        Me.Controls.Add(Me.Label2)
         Me.Name = "PwReset"
         Me.Text = "パスワード再設定画面"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents PwResetButton As Button
     Friend WithEvents PwUpdateButton As Button
-    Friend WithEvents TextUserId As TextBoxEx
     Friend WithEvents TextPw As TextBoxEx
+    Friend WithEvents TextPw2 As TextBoxEx
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TextUserId As TextBox
 End Class

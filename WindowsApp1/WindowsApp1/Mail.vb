@@ -9,7 +9,7 @@ Public Class Mail
         Const FROMADDRESSPASS As String = "bksscheduleapp"                  'パスワード
         Const SENDSUBJECT As String = "パスワード再設定"                    '件名
         Dim SendMessage As String = "
-        パスワード再設定には、以下の認証コードを入力してください。           
+        パスワード再設定には、以下の仮パスワードを入力してください。           
                                     
         認証コード：" + Send_Message                                        '本文
 
@@ -41,6 +41,6 @@ Public Class Mail
         End Try
         msg.Dispose()
         MsgBox(res, MessageBoxButtons.OK)
-    End Sub
 
+    End Sub
 End Class

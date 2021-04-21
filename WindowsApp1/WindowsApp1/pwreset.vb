@@ -2,78 +2,6 @@
 
 Public Class PwReset
 
-    Private Sub PwResetButton_Click(sender As Object, e As EventArgs) Handles PwResetButton.Click
-
-        '//user_Idを変数に代入
-        Dim userId As String = TextUserId.Text
-
-        '//エラーチェック
-        Dim errorMsg As String = ""
-
-        'userIdがNullか空白の時
-        If String.IsNullOrEmpty(userId) Then
-
-            errorMsg += "ユーザID" + Environment.NewLine
-
-            ' テキストボックスの枠線を変える
-            TextUserId.CustomBorderColor = Color.Red
-        Else
-            TextUserId.CustomBorderColor = Color.Gray
-        End If
-
-        If String.IsNullOrEmpty(errorMsg) Then
-
-            'メールアドレス形式か調べる
-            If Not System.Text.RegularExpressions.Regex.IsMatch(TextUserId.Text, "\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z",
-                                                    System.Text.RegularExpressions.RegexOptions.IgnoreCase) Then
-
-                ' テキストボックスの枠線を変える
-                TextUserId.CustomBorderColor = Color.Red
-
-                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                ' テキストボックスの枠線を変える
-                TextUserId.CustomBorderColor = Color.Gray
-
-                'メッセージボックスを表示する 
-                Dim result As DialogResult = MessageBox.Show("パスワード再設定メールを送信しますか？", "質問",
-                                                         MessageBoxButtons.YesNo,
-                                                         MessageBoxIcon.Question,
-                                                         MessageBoxDefaultButton.Button2)
-
-                'メッセージボックスで「はい」を選択
-                If result = DialogResult.Yes Then
-
-                    Dim r As New Random
-                    Dim arrNum(3) As String
-                    Dim SendMessage As String = ""
-
-                    For i = 0 To 3
-
-                        Dim number1 As Integer = r.Next(1, 9)
-
-                        arrNum(i) = number1.ToString
-
-                        SendMessage += arrNum(i)
-
-                    Next i
-
-                    'Mail送信クラスを呼び出す
-                    Dim mail As New Mail
-                    mail.MailSend(userId, SendMessage)
-
-                End If
-            End If
-
-        Else
-            ' 未入力エラーメッセージを表示
-            MessageBox.Show(errorMsg + "が未入力です", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        End If
-
-    End Sub
-
     Private Sub PwUpdateButton_Click(sender As Object, e As EventArgs) Handles PwUpdateButton.Click
 
         '//user_Idを変数に代入
@@ -82,6 +10,9 @@ Public Class PwReset
         '//pwを変数に代入
         Dim password As String = TextPw.Text
 
+        '//pwを変数に代入
+        Dim password2 As String = TextPw2.Text
+
         '//エラーチェック
         Dim errorMsg As String = ""
 
@@ -89,17 +20,6 @@ Public Class PwReset
         Const sLogin As String = "server=localhost; database=BKSScheduledb; userid=BKSSCHEDULE; password=bksscd;"
 
         Dim Conn As New MySqlConnection(sLogin)
-
-        'userIdがNullか空白ではない時
-        If String.IsNullOrEmpty(userId) Then
-
-            errorMsg += "ユーザID" + Environment.NewLine
-
-            ' テキストボックスの枠線を変える
-            TextUserId.CustomBorderColor = Color.Red
-        Else
-            TextUserId.CustomBorderColor = Color.Gray
-        End If
 
         'passwordがNullか空白ではない時
         If String.IsNullOrEmpty(password) Then
@@ -112,21 +32,33 @@ Public Class PwReset
             TextPw.CustomBorderColor = Color.Gray
         End If
 
+        'passwordがNullか空白ではない時
+        If String.IsNullOrEmpty(password2) Then
+
+            errorMsg += "Password" + Environment.NewLine
+
+            ' テキストボックスの枠線を変える
+            TextPw2.CustomBorderColor = Color.Red
+        Else
+            TextPw2.CustomBorderColor = Color.Gray
+        End If
+
         If String.IsNullOrEmpty(errorMsg) Then
 
-            'メールアドレス形式か調べる
-            If Not System.Text.RegularExpressions.Regex.IsMatch(TextUserId.Text, "\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z",
-                                                    System.Text.RegularExpressions.RegexOptions.IgnoreCase) Then
+            'Passwordが二つ同じものが入力されているか確認
+            If Not password.Equals(password2) Then
 
                 ' テキストボックスの枠線を変える
-                TextUserId.CustomBorderColor = Color.Red
+                TextPw.CustomBorderColor = Color.Red
+                TextPw2.CustomBorderColor = Color.Red
 
-                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
+                MessageBox.Show("Passwordは2箇所同じものを入力してください。", "エラー",
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Else
                 ' テキストボックスの枠線を変える
-                TextUserId.CustomBorderColor = Color.Gray
+                TextPw.CustomBorderColor = Color.Gray
+                TextPw2.CustomBorderColor = Color.Gray
 
                 'メッセージボックスを表示する 
                 Dim result As DialogResult = MessageBox.Show("Passwordを再登録しますか？", "質問",
@@ -163,7 +95,7 @@ Public Class PwReset
                     End Try
 
                     '自画面を非表示
-                    Me.Visible = False
+                    Me.Close()
 
                     'Login画面に戻る
                     Dim login As New Login
@@ -178,5 +110,10 @@ Public Class PwReset
 
         End If
 
+    End Sub
+
+    Private Sub pw_TextChanged(sender As Object, e As EventArgs) Handles TextPw.TextChanged
+        ' パスワードをアスタリスク表示にする
+        TextPw.PasswordChar = "*"
     End Sub
 End Class
