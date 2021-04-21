@@ -131,7 +131,7 @@ Public Class AddSchedule
         Dim Con As MySqlConnection = SqlConnection()
         Con.Open()
         Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id As 登録ID from Schedule
-        where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "'order by regist_startdate asc"
+        where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "' and user_id = '" + Login.userIdProperty + "' order by regist_startdate asc"
         Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
         Dim Dt As New DataTable
         Adapter.Fill(Dt)
