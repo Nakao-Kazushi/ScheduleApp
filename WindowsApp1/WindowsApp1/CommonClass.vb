@@ -44,4 +44,35 @@
         Return errorMsg
     End Function
 
+    ''' <summary>
+    ''' 1.開始日が今日より前の日付か
+    ''' <para>2.終了日が開始日より前の日付か</para>
+    ''' <para>3.終了時間が開始時間より前の時間か</para>
+    ''' <para>をチェックする</para>
+    ''' </summary>
+    ''' <param name="selected_startdate">開始日</param>
+    ''' <param name="selected_enddate">終了日</param>
+    ''' <param name="selected_starttime">開始時間</param>
+    ''' <param name="selected_endtime">終了時間</param>
+    ''' <returns>いずれかに該当する場合はfalse</returns>
+    Public Shared Function ScheduleDateCheck(selected_startdate As String, selected_enddate As String,
+                                             selected_starttime As String, selected_endtime As String) As Boolean
+        ' 現在時刻取得
+        Dim dtn As DateTime = DateTime.Now
+        Dim nowDate As String = dtn.ToString("yyyy/MM/dd")
+        ' 戻り値を宣言
+        Dim result As Boolean = True
+        If nowDate.CompareTo(selected_startdate) = 1 Then
+            MessageBox.Show("開始日は今日以降の日付を入力して下さい", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            result = False
+        ElseIf selected_startdate > selected_enddate Then
+            MessageBox.Show("終了日は開始日以降の日付を入力して下さい", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            result = False
+        ElseIf selected_startdate = selected_enddate And
+               selected_starttime > selected_endtime Then
+            MessageBox.Show("終了時間は開始時間以降の時間を入力して下さい", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            result = False
+        End If
+        Return result
+    End Function
 End Class

@@ -103,10 +103,19 @@ Public Class Login
         txtPassword.PasswordChar = "*"
     End Sub
 
-    Private Sub lnkPWSetting_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkPWSetting.LinkClicked
-        Dim PwReset As PwReset = New PwReset()
-        Me.Visible() = False
-        PwReset.Show()
+    ' userIdのプロパティ
+    Public Property userIdProperty() As String
+        Get
+            Return txtUserId.Text
+        End Get
+        Set(Value As String)
+            txtUserId.Text = Value
+        End Set
+    End Property
 
+    Private Sub lnkPWSetting_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkPWSetting.LinkClicked
+        Dim MailSubmit As MailSubmit = New MailSubmit()
+        Me.Visible() = False
+        MailSubmit.Show()
     End Sub
 End Class

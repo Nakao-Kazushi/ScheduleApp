@@ -38,7 +38,7 @@ Partial Class Login
         '
         Me.chkSaveLogin.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.chkSaveLogin.AutoSize = True
-        Me.chkSaveLogin.Location = New System.Drawing.Point(573, 239)
+        Me.chkSaveLogin.Location = New System.Drawing.Point(309, 239)
         Me.chkSaveLogin.Name = "chkSaveLogin"
         Me.chkSaveLogin.Size = New System.Drawing.Size(169, 19)
         Me.chkSaveLogin.TabIndex = 4
@@ -49,7 +49,7 @@ Partial Class Login
         '
         Me.lnkAddUser.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lnkAddUser.AutoSize = True
-        Me.lnkAddUser.Location = New System.Drawing.Point(458, 322)
+        Me.lnkAddUser.Location = New System.Drawing.Point(326, 322)
         Me.lnkAddUser.Name = "lnkAddUser"
         Me.lnkAddUser.Size = New System.Drawing.Size(38, 15)
         Me.lnkAddUser.TabIndex = 7
@@ -60,7 +60,7 @@ Partial Class Login
         '
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(321, 322)
+        Me.Label3.Location = New System.Drawing.Point(189, 322)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(131, 15)
         Me.Label3.TabIndex = 6
@@ -71,7 +71,7 @@ Partial Class Login
         Me.btnLogin.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnLogin.Location = New System.Drawing.Point(131, 264)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(532, 37)
+        Me.btnLogin.Size = New System.Drawing.Size(268, 37)
         Me.btnLogin.TabIndex = 5
         Me.btnLogin.Text = "ログイン"
         Me.btnLogin.UseVisualStyleBackColor = True
@@ -90,17 +90,17 @@ Partial Class Login
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(68, 134)
+        Me.Label1.Location = New System.Drawing.Point(40, 133)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 15)
+        Me.Label1.Size = New System.Drawing.Size(85, 15)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "ユーザID"
+        Me.Label1.Text = "メールアドレス"
         '
         'Label4
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(297, 356)
+        Me.Label4.Location = New System.Drawing.Point(165, 356)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(155, 15)
         Me.Label4.TabIndex = 8
@@ -110,7 +110,7 @@ Partial Class Login
         '
         Me.lnkPWSetting.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lnkPWSetting.AutoSize = True
-        Me.lnkPWSetting.Location = New System.Drawing.Point(458, 356)
+        Me.lnkPWSetting.Location = New System.Drawing.Point(326, 356)
         Me.lnkPWSetting.Name = "lnkPWSetting"
         Me.lnkPWSetting.Size = New System.Drawing.Size(38, 15)
         Me.lnkPWSetting.TabIndex = 9
@@ -124,7 +124,7 @@ Partial Class Login
         Me.txtPassword.CustomBorderColor = System.Drawing.Color.Gray
         Me.txtPassword.Location = New System.Drawing.Point(131, 202)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(532, 22)
+        Me.txtPassword.Size = New System.Drawing.Size(268, 22)
         Me.txtPassword.TabIndex = 3
         '
         'txtUserId
@@ -134,14 +134,14 @@ Partial Class Login
         Me.txtUserId.CustomBorderColor = System.Drawing.Color.Gray
         Me.txtUserId.Location = New System.Drawing.Point(131, 131)
         Me.txtUserId.Name = "txtUserId"
-        Me.txtUserId.Size = New System.Drawing.Size(532, 22)
+        Me.txtUserId.Size = New System.Drawing.Size(268, 22)
         Me.txtUserId.TabIndex = 1
         '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(777, 453)
+        Me.ClientSize = New System.Drawing.Size(513, 453)
         Me.Controls.Add(Me.lnkPWSetting)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtPassword)

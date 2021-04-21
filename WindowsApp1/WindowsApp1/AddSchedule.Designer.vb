@@ -22,187 +22,286 @@ Partial Class AddSchedule
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.MonthCalendar1 = New System.Windows.Forms.MonthCalendar()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ScheduleCalendar = New System.Windows.Forms.MonthCalendar()
+        Me.btnAddButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpStartDate = New System.Windows.Forms.DateTimePicker()
+        Me.dtpEndDate = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtDetailedSchedule = New System.Windows.Forms.TextBox()
+        Me.cmbStartHour = New System.Windows.Forms.ComboBox()
+        Me.cmbStartMinute = New System.Windows.Forms.ComboBox()
+        Me.cmbEndHour = New System.Windows.Forms.ComboBox()
+        Me.cmbEndMinute = New System.Windows.Forms.ComboBox()
+        Me.btnViewAllSchedules = New System.Windows.Forms.Button()
+        Me.dgvAllSchedules = New System.Windows.Forms.DataGridView()
+        Me.btnComplete = New System.Windows.Forms.Button()
+        Me.chkComplete = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.btn = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.dgvAllSchedules, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'MonthCalendar1
+        'ScheduleCalendar
         '
-        Me.MonthCalendar1.ForeColor = System.Drawing.Color.Black
-        Me.MonthCalendar1.Location = New System.Drawing.Point(75, 50)
-        Me.MonthCalendar1.Name = "MonthCalendar1"
-        Me.MonthCalendar1.ShowToday = False
-        Me.MonthCalendar1.TabIndex = 0
-        Me.MonthCalendar1.TodayDate = New Date(2021, 4, 7, 0, 0, 0, 0)
-        Me.MonthCalendar1.TrailingForeColor = System.Drawing.SystemColors.InactiveCaption
+        Me.ScheduleCalendar.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.ScheduleCalendar.ForeColor = System.Drawing.Color.Black
+        Me.ScheduleCalendar.Location = New System.Drawing.Point(118, 32)
+        Me.ScheduleCalendar.MaxSelectionCount = 31
+        Me.ScheduleCalendar.Name = "ScheduleCalendar"
+        Me.ScheduleCalendar.ShowToday = False
+        Me.ScheduleCalendar.TabIndex = 0
+        Me.ScheduleCalendar.TodayDate = New Date(2021, 4, 7, 0, 0, 0, 0)
+        Me.ScheduleCalendar.TrailingForeColor = System.Drawing.SystemColors.InactiveCaption
         '
-        'Button1
+        'btnAddButton
         '
-        Me.Button1.Location = New System.Drawing.Point(607, 268)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 26)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "登録"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAddButton.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnAddButton.Location = New System.Drawing.Point(709, 242)
+        Me.btnAddButton.Name = "btnAddButton"
+        Me.btnAddButton.Size = New System.Drawing.Size(75, 37)
+        Me.btnAddButton.TabIndex = 1
+        Me.btnAddButton.Text = "登録"
+        Me.btnAddButton.UseVisualStyleBackColor = True
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(515, 125)
+        Me.Label1.Location = New System.Drawing.Point(617, 107)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(22, 15)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "～"
         '
-        'DateTimePicker1
+        'dtpStartDate
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(375, 73)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(133, 22)
-        Me.DateTimePicker1.TabIndex = 8
-        Me.DateTimePicker1.Value = New Date(2021, 4, 8, 0, 0, 0, 0)
+        Me.dtpStartDate.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.dtpStartDate.Location = New System.Drawing.Point(477, 55)
+        Me.dtpStartDate.Name = "dtpStartDate"
+        Me.dtpStartDate.Size = New System.Drawing.Size(133, 22)
+        Me.dtpStartDate.TabIndex = 8
+        Me.dtpStartDate.Value = New Date(2021, 4, 19, 0, 0, 0, 0)
         '
-        'DataGridView1
+        'dtpEndDate
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 310)
-        Me.DataGridView1.MultiSelect = False
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(901, 357)
-        Me.DataGridView1.TabIndex = 9
-        Me.DataGridView1.VirtualMode = True
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = ""
-        Me.Column1.MinimumWidth = 6
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Text = "詳細"
-        Me.Column1.UseColumnTextForButtonValue = True
-        Me.Column1.Width = 45
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(539, 73)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(143, 22)
-        Me.DateTimePicker2.TabIndex = 10
-        Me.DateTimePicker2.Value = New Date(2021, 4, 8, 0, 0, 0, 0)
+        Me.dtpEndDate.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.dtpEndDate.Location = New System.Drawing.Point(641, 55)
+        Me.dtpEndDate.Name = "dtpEndDate"
+        Me.dtpEndDate.Size = New System.Drawing.Size(143, 22)
+        Me.dtpEndDate.TabIndex = 10
+        Me.dtpEndDate.Value = New Date(2021, 4, 19, 0, 0, 0, 0)
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(514, 77)
+        Me.Label2.Location = New System.Drawing.Point(616, 59)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(22, 15)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "～"
         '
-        'TextBox1
+        'txtDetailedSchedule
         '
-        Me.TextBox1.Location = New System.Drawing.Point(375, 165)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(307, 89)
-        Me.TextBox1.TabIndex = 12
+        Me.txtDetailedSchedule.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.txtDetailedSchedule.Location = New System.Drawing.Point(477, 147)
+        Me.txtDetailedSchedule.Multiline = True
+        Me.txtDetailedSchedule.Name = "txtDetailedSchedule"
+        Me.txtDetailedSchedule.Size = New System.Drawing.Size(307, 89)
+        Me.txtDetailedSchedule.TabIndex = 12
         '
-        'ComboBox1
+        'cmbStartHour
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"})
-        Me.ComboBox1.Location = New System.Drawing.Point(396, 119)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(47, 23)
-        Me.ComboBox1.TabIndex = 13
-        Me.ComboBox1.Text = "00"
+        Me.cmbStartHour.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.cmbStartHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbStartHour.FormattingEnabled = True
+        Me.cmbStartHour.Items.AddRange(New Object() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"})
+        Me.cmbStartHour.Location = New System.Drawing.Point(498, 101)
+        Me.cmbStartHour.Name = "cmbStartHour"
+        Me.cmbStartHour.Size = New System.Drawing.Size(47, 23)
+        Me.cmbStartHour.TabIndex = 13
         '
-        'ComboBox2
+        'cmbStartMinute
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"})
-        Me.ComboBox2.Location = New System.Drawing.Point(449, 119)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(47, 23)
-        Me.ComboBox2.TabIndex = 14
-        Me.ComboBox2.Text = "00"
+        Me.cmbStartMinute.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.cmbStartMinute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbStartMinute.FormattingEnabled = True
+        Me.cmbStartMinute.Items.AddRange(New Object() {"00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"})
+        Me.cmbStartMinute.Location = New System.Drawing.Point(551, 101)
+        Me.cmbStartMinute.Name = "cmbStartMinute"
+        Me.cmbStartMinute.Size = New System.Drawing.Size(47, 23)
+        Me.cmbStartMinute.TabIndex = 14
         '
-        'ComboBox3
+        'cmbEndHour
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"})
-        Me.ComboBox3.Location = New System.Drawing.Point(559, 119)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(47, 23)
-        Me.ComboBox3.TabIndex = 15
-        Me.ComboBox3.Text = "00"
+        Me.cmbEndHour.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.cmbEndHour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbEndHour.FormattingEnabled = True
+        Me.cmbEndHour.Items.AddRange(New Object() {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"})
+        Me.cmbEndHour.Location = New System.Drawing.Point(661, 101)
+        Me.cmbEndHour.Name = "cmbEndHour"
+        Me.cmbEndHour.Size = New System.Drawing.Size(47, 23)
+        Me.cmbEndHour.TabIndex = 15
         '
-        'ComboBox4
+        'cmbEndMinute
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"})
-        Me.ComboBox4.Location = New System.Drawing.Point(613, 119)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(47, 23)
-        Me.ComboBox4.TabIndex = 16
-        Me.ComboBox4.Text = "00"
+        Me.cmbEndMinute.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.cmbEndMinute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbEndMinute.FormattingEnabled = True
+        Me.cmbEndMinute.Items.AddRange(New Object() {"00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"})
+        Me.cmbEndMinute.Location = New System.Drawing.Point(715, 101)
+        Me.cmbEndMinute.Name = "cmbEndMinute"
+        Me.cmbEndMinute.Size = New System.Drawing.Size(47, 23)
+        Me.cmbEndMinute.TabIndex = 16
+        '
+        'btnViewAllSchedules
+        '
+        Me.btnViewAllSchedules.Location = New System.Drawing.Point(122, 314)
+        Me.btnViewAllSchedules.Name = "btnViewAllSchedules"
+        Me.btnViewAllSchedules.Size = New System.Drawing.Size(94, 40)
+        Me.btnViewAllSchedules.TabIndex = 17
+        Me.btnViewAllSchedules.Text = "一括表示"
+        Me.btnViewAllSchedules.UseVisualStyleBackColor = True
+        '
+        'dgvAllSchedules
+        '
+        Me.dgvAllSchedules.AllowUserToAddRows = False
+        Me.dgvAllSchedules.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvAllSchedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvAllSchedules.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.chkComplete, Me.btn})
+        Me.dgvAllSchedules.Location = New System.Drawing.Point(16, 372)
+        Me.dgvAllSchedules.Name = "dgvAllSchedules"
+        Me.dgvAllSchedules.RowHeadersVisible = False
+        Me.dgvAllSchedules.RowHeadersWidth = 51
+        Me.dgvAllSchedules.RowTemplate.Height = 24
+        Me.dgvAllSchedules.Size = New System.Drawing.Size(935, 365)
+        Me.dgvAllSchedules.TabIndex = 18
+        '
+        'btnComplete
+        '
+        Me.btnComplete.Location = New System.Drawing.Point(17, 314)
+        Me.btnComplete.Name = "btnComplete"
+        Me.btnComplete.Size = New System.Drawing.Size(75, 40)
+        Me.btnComplete.TabIndex = 19
+        Me.btnComplete.Text = "完了"
+        Me.btnComplete.UseVisualStyleBackColor = True
+        '
+        'chkComplete
+        '
+        Me.chkComplete.FalseValue = "false"
+        Me.chkComplete.HeaderText = ""
+        Me.chkComplete.MinimumWidth = 6
+        Me.chkComplete.Name = "chkComplete"
+        Me.chkComplete.TrueValue = "true"
+        Me.chkComplete.Width = 50
+        '
+        'btn
+        '
+        Me.btn.HeaderText = "詳細"
+        Me.btn.MinimumWidth = 6
+        Me.btn.Name = "btn"
+        Me.btn.Text = "詳細"
+        Me.btn.UseColumnTextForButtonValue = True
+        Me.btn.Width = 50
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(424, 59)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(37, 15)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "日付"
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(424, 104)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(37, 15)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "時間"
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(424, 147)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(37, 15)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "詳細"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Location = New System.Drawing.Point(76, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(830, 281)
+        Me.PictureBox1.TabIndex = 23
+        Me.PictureBox1.TabStop = False
         '
         'AddSchedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(925, 690)
-        Me.Controls.Add(Me.ComboBox4)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.ClientSize = New System.Drawing.Size(963, 749)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.btnComplete)
+        Me.Controls.Add(Me.dgvAllSchedules)
+        Me.Controls.Add(Me.btnViewAllSchedules)
+        Me.Controls.Add(Me.cmbEndMinute)
+        Me.Controls.Add(Me.cmbEndHour)
+        Me.Controls.Add(Me.cmbStartMinute)
+        Me.Controls.Add(Me.cmbStartHour)
+        Me.Controls.Add(Me.txtDetailedSchedule)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.DateTimePicker2)
-        Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtpEndDate)
+        Me.Controls.Add(Me.dtpStartDate)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.MonthCalendar1)
+        Me.Controls.Add(Me.btnAddButton)
+        Me.Controls.Add(Me.ScheduleCalendar)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Name = "AddSchedule"
         Me.Text = "myスケジュール"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvAllSchedules, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents MonthCalendar1 As MonthCalendar
-    Friend WithEvents Button1 As Button
+    Friend WithEvents ScheduleCalendar As MonthCalendar
+    Friend WithEvents btnAddButton As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents dtpStartDate As DateTimePicker
+    Friend WithEvents dtpEndDate As DateTimePicker
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox4 As ComboBox
-    Friend WithEvents Column1 As DataGridViewButtonColumn
+    Friend WithEvents txtDetailedSchedule As TextBox
+    Friend WithEvents cmbStartHour As ComboBox
+    Friend WithEvents cmbStartMinute As ComboBox
+    Friend WithEvents cmbEndHour As ComboBox
+    Friend WithEvents cmbEndMinute As ComboBox
+    Friend WithEvents btnViewAllSchedules As Button
+    Friend WithEvents dgvAllSchedules As DataGridView
+    Friend WithEvents btnComplete As Button
+    Friend WithEvents chkComplete As DataGridViewCheckBoxColumn
+    Friend WithEvents btn As DataGridViewButtonColumn
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
