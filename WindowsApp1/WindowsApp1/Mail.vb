@@ -17,7 +17,7 @@ Public Class Mail
         Try
             msg = New System.Net.Mail.MailMessage(FROMADDRESS, ToAddress, SENDSUBJECT, SendMessage)
         Catch ex As Exception
-            MsgBox(ex.Message)
+            Dim results As DialogResult = MessageBox.Show(ex.Message)
             Exit Sub
 
         End Try
@@ -40,7 +40,7 @@ Public Class Mail
             res = ex.Message
         End Try
         msg.Dispose()
-        MsgBox(res, MessageBoxButtons.OK)
+        Dim result As DialogResult = MessageBox.Show(res, "送信連絡", MessageBoxButtons.OK)
 
     End Sub
 End Class

@@ -25,11 +25,13 @@ Partial Class MailSubmit
         Me.MailSubButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextMailaddress = New WindowsApp1.TextBoxEx()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.ReturnButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'MailSubButton
         '
-        Me.MailSubButton.Location = New System.Drawing.Point(385, 207)
+        Me.MailSubButton.Location = New System.Drawing.Point(393, 214)
         Me.MailSubButton.Name = "MailSubButton"
         Me.MailSubButton.Size = New System.Drawing.Size(98, 55)
         Me.MailSubButton.TabIndex = 1
@@ -54,11 +56,30 @@ Partial Class MailSubmit
         Me.TextMailaddress.Size = New System.Drawing.Size(255, 22)
         Me.TextMailaddress.TabIndex = 8
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(70, 41)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(0, 15)
+        Me.Label2.TabIndex = 9
+        '
+        'ReturnButton
+        '
+        Me.ReturnButton.Location = New System.Drawing.Point(510, 214)
+        Me.ReturnButton.Name = "ReturnButton"
+        Me.ReturnButton.Size = New System.Drawing.Size(98, 55)
+        Me.ReturnButton.TabIndex = 10
+        Me.ReturnButton.Text = "戻る"
+        Me.ReturnButton.UseVisualStyleBackColor = True
+        '
         'MailSubmit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(547, 310)
+        Me.ClientSize = New System.Drawing.Size(620, 323)
+        Me.Controls.Add(Me.ReturnButton)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextMailaddress)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MailSubButton)
@@ -71,4 +92,6 @@ Partial Class MailSubmit
     Friend WithEvents MailSubButton As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents TextMailaddress As TextBoxEx
+    Friend WithEvents Label2 As Label
+    Friend WithEvents ReturnButton As Button
 End Class

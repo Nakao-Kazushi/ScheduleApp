@@ -112,8 +112,10 @@ Public Class PwReset
 
     End Sub
 
-    Private Sub pw_TextChanged(sender As Object, e As EventArgs) Handles TextPw.TextChanged
+    Private Sub pw_TextChanged(sender As Object, e As EventArgs) Handles TextPw.TextChanged, TextPw2.TextChanged
         ' パスワードをアスタリスク表示にする
         TextPw.PasswordChar = "*"
+        TextPw2.PasswordChar = "*"
     End Sub
+
 End Class

@@ -87,7 +87,7 @@ Partial Class PwReset
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(730, 360)
         Me.Controls.Add(Me.TextUserId)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextPw2)

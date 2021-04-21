@@ -136,4 +136,9 @@ Public Class MailSubmit
         End Try
     End Sub
 
+    Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
+        Dim Login As Login = New Login()
+        Me.Visible() = False
+        Login.Show()
+    End Sub
 End Class

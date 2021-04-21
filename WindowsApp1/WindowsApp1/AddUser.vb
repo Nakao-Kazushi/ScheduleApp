@@ -57,6 +57,7 @@ Public Class AddUser
                 'テキストボックスの枠線を変える
                 user_Id.CustomBorderColor = Color.Gray
 
+                '重複チェックメソッド
                 UserIdCheck(dt)
 
                 If dt.Rows.Count >= 1 Then
