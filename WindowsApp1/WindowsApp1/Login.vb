@@ -114,9 +114,8 @@ Public Class Login
     End Property
 
     Private Sub lnkPWSetting_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkPWSetting.LinkClicked
-        'Dim MailSubmit As MailSubmit = New MailSubmit()
-        'Me.Visible() = False
-        'MailSubmit.Show()
-        'Me.Visible() = True
+        Dim MailSubmit As MailSubmit = New MailSubmit()
+        Me.Visible() = False
+        MailSubmit.Show()
     End Sub
 End Class
