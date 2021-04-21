@@ -134,6 +134,18 @@
       <DependentUpon>AddUser.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MailSubmit.Designer.vb">
+      <DependentUpon>MailSubmit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MailSubmit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pwreset.Designer.vb">
+      <DependentUpon>pwreset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="pwreset.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Mail.Designer.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +200,9 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MailSubmit.resx">
+      <DependentUpon>MailSubmit.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +214,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pwreset.resx">
+      <DependentUpon>pwreset.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextBoxEx.resx">
       <DependentUpon>TextBoxEx.vb</DependentUpon>

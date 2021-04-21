@@ -102,4 +102,11 @@ Public Class Login
         ' パスワードをアスタリスク表示にする
         txtPassword.PasswordChar = "*"
     End Sub
+
+    Private Sub lnkPWSetting_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkPWSetting.LinkClicked
+        Dim PwReset As PwReset = New PwReset()
+        Me.Visible() = False
+        PwReset.Show()
+
+    End Sub
 End Class
