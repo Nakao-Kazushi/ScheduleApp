@@ -35,9 +35,9 @@ Partial Class AddUser
         Me.userId.AutoSize = True
         Me.userId.Location = New System.Drawing.Point(110, 118)
         Me.userId.Name = "userId"
-        Me.userId.Size = New System.Drawing.Size(69, 15)
+        Me.userId.Size = New System.Drawing.Size(85, 15)
         Me.userId.TabIndex = 2
-        Me.userId.Text = "ユーザーID"
+        Me.userId.Text = "メールアドレス"
         '
         'password
         '
