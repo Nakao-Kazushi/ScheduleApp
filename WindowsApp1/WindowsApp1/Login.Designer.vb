@@ -26,8 +26,8 @@ Partial Class Login
         Me.lnkAddUser = New System.Windows.Forms.LinkLabel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblPassword = New System.Windows.Forms.Label()
+        Me.lblMailAddress = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lnkPWSetting = New System.Windows.Forms.LinkLabel()
         Me.txtPassword = New WindowsApp1.TextBoxEx()
@@ -76,25 +76,25 @@ Partial Class Login
         Me.btnLogin.Text = "ログイン"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
-        'Label2
+        'lblPassword
         '
-        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(58, 205)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 15)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Password"
+        Me.lblPassword.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblPassword.AutoSize = True
+        Me.lblPassword.Location = New System.Drawing.Point(58, 205)
+        Me.lblPassword.Name = "lblPassword"
+        Me.lblPassword.Size = New System.Drawing.Size(67, 15)
+        Me.lblPassword.TabIndex = 2
+        Me.lblPassword.Text = "Password"
         '
-        'Label1
+        'lblMailAddress
         '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(40, 133)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(85, 15)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "メールアドレス"
+        Me.lblMailAddress.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lblMailAddress.AutoSize = True
+        Me.lblMailAddress.Location = New System.Drawing.Point(40, 133)
+        Me.lblMailAddress.Name = "lblMailAddress"
+        Me.lblMailAddress.Size = New System.Drawing.Size(85, 15)
+        Me.lblMailAddress.TabIndex = 0
+        Me.lblMailAddress.Text = "メールアドレス"
         '
         'Label4
         '
@@ -150,8 +150,8 @@ Partial Class Login
         Me.Controls.Add(Me.lnkAddUser)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnLogin)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblPassword)
+        Me.Controls.Add(Me.lblMailAddress)
         Me.Name = "Login"
         Me.Text = "ログイン画面"
         Me.ResumeLayout(False)
@@ -163,8 +163,8 @@ Partial Class Login
     Friend WithEvents lnkAddUser As LinkLabel
     Friend WithEvents Label3 As Label
     Friend WithEvents btnLogin As Button
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblPassword As Label
+    Friend WithEvents lblMailAddress As Label
     Friend WithEvents txtUserId As TextBoxEx
     Friend WithEvents txtPassword As TextBoxEx
     Friend WithEvents Label4 As Label

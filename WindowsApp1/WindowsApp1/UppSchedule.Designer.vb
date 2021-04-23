@@ -39,6 +39,7 @@ Partial Class UppSchedule
         'txtDetailedSchedule
         '
         Me.txtDetailedSchedule.Location = New System.Drawing.Point(206, 166)
+        Me.txtDetailedSchedule.MaxLength = 500
         Me.txtDetailedSchedule.Multiline = True
         Me.txtDetailedSchedule.Name = "txtDetailedSchedule"
         Me.txtDetailedSchedule.Size = New System.Drawing.Size(365, 159)
@@ -163,6 +164,8 @@ Partial Class UppSchedule
         Me.Controls.Add(Me.dtpEndDate)
         Me.Controls.Add(Me.dtpStartDate)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(818, 497)
+        Me.MinimumSize = New System.Drawing.Size(818, 497)
         Me.Name = "UppSchedule"
         Me.Text = "詳細"
         Me.ResumeLayout(False)

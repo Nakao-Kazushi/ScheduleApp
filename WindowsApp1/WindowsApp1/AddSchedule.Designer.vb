@@ -35,9 +35,9 @@ Partial Class AddSchedule
         Me.cmbEndMinute = New System.Windows.Forms.ComboBox()
         Me.btnViewAllSchedules = New System.Windows.Forms.Button()
         Me.dgvAllSchedules = New System.Windows.Forms.DataGridView()
-        Me.btnComplete = New System.Windows.Forms.Button()
         Me.chkComplete = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.btn = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.btnComplete = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -110,6 +110,7 @@ Partial Class AddSchedule
         '
         Me.txtDetailedSchedule.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.txtDetailedSchedule.Location = New System.Drawing.Point(477, 147)
+        Me.txtDetailedSchedule.MaxLength = 500
         Me.txtDetailedSchedule.Multiline = True
         Me.txtDetailedSchedule.Name = "txtDetailedSchedule"
         Me.txtDetailedSchedule.Size = New System.Drawing.Size(307, 89)
@@ -184,15 +185,6 @@ Partial Class AddSchedule
         Me.dgvAllSchedules.Size = New System.Drawing.Size(935, 365)
         Me.dgvAllSchedules.TabIndex = 18
         '
-        'btnComplete
-        '
-        Me.btnComplete.Location = New System.Drawing.Point(17, 314)
-        Me.btnComplete.Name = "btnComplete"
-        Me.btnComplete.Size = New System.Drawing.Size(75, 40)
-        Me.btnComplete.TabIndex = 19
-        Me.btnComplete.Text = "完了"
-        Me.btnComplete.UseVisualStyleBackColor = True
-        '
         'chkComplete
         '
         Me.chkComplete.FalseValue = "false"
@@ -210,6 +202,15 @@ Partial Class AddSchedule
         Me.btn.Text = "詳細"
         Me.btn.UseColumnTextForButtonValue = True
         Me.btn.Width = 50
+        '
+        'btnComplete
+        '
+        Me.btnComplete.Location = New System.Drawing.Point(17, 314)
+        Me.btnComplete.Name = "btnComplete"
+        Me.btnComplete.Size = New System.Drawing.Size(75, 40)
+        Me.btnComplete.TabIndex = 19
+        Me.btnComplete.Text = "完了"
+        Me.btnComplete.UseVisualStyleBackColor = True
         '
         'Label3
         '

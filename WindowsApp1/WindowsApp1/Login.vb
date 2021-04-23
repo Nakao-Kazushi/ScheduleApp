@@ -24,16 +24,16 @@ Public Class Login
             adapter.Fill(dt)
 
             ' ユーザIDの未入力チェックを実施
-            errorMsg = CommonClass.NotInputError("ユーザID", errorMsg, txtUserId)
+            errorMsg = CommonClass.NotInputError(lblMailAddress.Text, errorMsg, txtUserId)
 
             ' Passwordの未入力チェックを実施
-            errorMsg = CommonClass.NotInputError("Password", errorMsg, txtPassword)
+            errorMsg = CommonClass.NotInputError(lblPassword.Text, errorMsg, txtPassword)
 
             ' エラーが発生していない場合
             If String.IsNullOrEmpty(errorMsg) Then
                 ' ユーザIDがメールアドレスかをチェックする
                 If Not CommonClass.CheckMailAddress(txtUserId.Text) Then
-                    MessageBox.Show("ユーザIDにはメールアドレスを入力してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("メールアドレス形式で入力して下さい", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     ' テキストボックスの枠線を赤くする
                     txtUserId.CustomBorderColor = Color.Red
                     Return
