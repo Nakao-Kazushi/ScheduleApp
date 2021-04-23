@@ -31,6 +31,7 @@ Partial Class MailSubmit
         '
         'MailSubButton
         '
+        Me.MailSubButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MailSubButton.Location = New System.Drawing.Point(393, 214)
         Me.MailSubButton.Name = "MailSubButton"
         Me.MailSubButton.Size = New System.Drawing.Size(98, 55)
@@ -49,6 +50,8 @@ Partial Class MailSubmit
         '
         'TextMailaddress
         '
+        Me.TextMailaddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextMailaddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextMailaddress.CustomBorderColor = System.Drawing.Color.Gray
         Me.TextMailaddress.Location = New System.Drawing.Point(138, 119)
@@ -66,6 +69,7 @@ Partial Class MailSubmit
         '
         'ReturnButton
         '
+        Me.ReturnButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReturnButton.Location = New System.Drawing.Point(510, 214)
         Me.ReturnButton.Name = "ReturnButton"
         Me.ReturnButton.Size = New System.Drawing.Size(98, 55)

@@ -50,7 +50,7 @@ Public Class AddUser
                 'テキストボックスの枠線を変える
                 user_Id.CustomBorderColor = Color.Red
 
-                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
+                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Else

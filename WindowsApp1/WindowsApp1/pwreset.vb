@@ -35,7 +35,7 @@ Public Class PwReset
         'passwordがNullか空白ではない時
         If String.IsNullOrEmpty(password2) Then
 
-            errorMsg += "Password" + Environment.NewLine
+            errorMsg += "2つ目のPassword" + Environment.NewLine
 
             ' テキストボックスの枠線を変える
             TextPw2.CustomBorderColor = Color.Red

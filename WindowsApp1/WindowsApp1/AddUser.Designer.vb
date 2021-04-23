@@ -26,8 +26,8 @@ Partial Class AddUser
         Me.password = New System.Windows.Forms.Label()
         Me.AddUserButton = New System.Windows.Forms.Button()
         Me.ReturnButton = New System.Windows.Forms.Button()
-        Me.user_Id = New WindowsApp1.TextBoxEx()
         Me.pw = New WindowsApp1.TextBoxEx()
+        Me.user_Id = New WindowsApp1.TextBoxEx()
         Me.SuspendLayout()
         '
         'userId
@@ -50,6 +50,7 @@ Partial Class AddUser
         '
         'AddUserButton
         '
+        Me.AddUserButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AddUserButton.Location = New System.Drawing.Point(521, 341)
         Me.AddUserButton.Name = "AddUserButton"
         Me.AddUserButton.Size = New System.Drawing.Size(83, 41)
@@ -59,6 +60,7 @@ Partial Class AddUser
         '
         'ReturnButton
         '
+        Me.ReturnButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ReturnButton.Location = New System.Drawing.Point(655, 341)
         Me.ReturnButton.Name = "ReturnButton"
         Me.ReturnButton.Size = New System.Drawing.Size(79, 41)
@@ -66,17 +68,10 @@ Partial Class AddUser
         Me.ReturnButton.Text = "戻る"
         Me.ReturnButton.UseVisualStyleBackColor = True
         '
-        'user_Id
-        '
-        Me.user_Id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.user_Id.CustomBorderColor = System.Drawing.Color.Gray
-        Me.user_Id.Location = New System.Drawing.Point(234, 116)
-        Me.user_Id.Name = "user_Id"
-        Me.user_Id.Size = New System.Drawing.Size(271, 22)
-        Me.user_Id.TabIndex = 6
-        '
         'pw
         '
+        Me.pw.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pw.CustomBorderColor = System.Drawing.Color.Gray
         Me.pw.Location = New System.Drawing.Point(234, 177)
@@ -84,11 +79,22 @@ Partial Class AddUser
         Me.pw.Size = New System.Drawing.Size(271, 22)
         Me.pw.TabIndex = 7
         '
+        'user_Id
+        '
+        Me.user_Id.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.user_Id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.user_Id.CustomBorderColor = System.Drawing.Color.Gray
+        Me.user_Id.Location = New System.Drawing.Point(234, 116)
+        Me.user_Id.Name = "user_Id"
+        Me.user_Id.Size = New System.Drawing.Size(271, 22)
+        Me.user_Id.TabIndex = 6
+        '
         'AddUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(832, 453)
+        Me.ClientSize = New System.Drawing.Size(777, 428)
         Me.Controls.Add(Me.pw)
         Me.Controls.Add(Me.user_Id)
         Me.Controls.Add(Me.ReturnButton)

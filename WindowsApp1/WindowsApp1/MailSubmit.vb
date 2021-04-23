@@ -28,7 +28,7 @@ Public Class MailSubmit
                 ' テキストボックスの枠線を変える
                 TextMailaddress.CustomBorderColor = Color.Red
 
-                MessageBox.Show("ユーザーIDにはメールアドレスを入力してください。", "エラー",
+                MessageBox.Show("空白にはメールアドレスを入力してください。", "エラー",
                             MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 ' テキストボックスの枠線を変える
@@ -92,7 +92,7 @@ Public Class MailSubmit
 
                         Else
                             ' 未入力エラーメッセージを表示
-                            MessageBox.Show("認証コードが間違っています。認証コードを再発行してください。", "Error")
+                            MessageBox.Show("認証コードが間違っています。認証コードを再発行してください。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                         End If
 
