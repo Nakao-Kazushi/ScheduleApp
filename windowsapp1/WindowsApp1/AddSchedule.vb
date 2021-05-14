@@ -42,6 +42,17 @@ Public Class AddSchedule
         ' カラム名を中央ぞろえにする
         dgvAllSchedules.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
 
+        PastScheduleColorChange()
+        ' 開始時間・終了時間の初期値を設定
+        cmbStartHour.Text = "00"
+        cmbStartMinute.Text = "00"
+        cmbEndHour.Text = "00"
+        cmbEndMinute.Text = "00"
+
+        Con.Close()
+    End Sub
+
+    Private Sub PastScheduleColorChange()
         ' 現在時刻取得
         Dim dtn As DateTime = DateTime.Now
         Dim nowDate As String = dtn.ToString("yyyy/MM/dd")
@@ -52,15 +63,8 @@ Public Class AddSchedule
                 dgvAllSchedules.Rows(row).DefaultCellStyle.BackColor = Color.Pink
             End If
         Next
-        ' 開始時間・終了時間の初期値を設定
-        cmbStartHour.Text = "00"
-        cmbStartMinute.Text = "00"
-        cmbEndHour.Text = "00"
-        cmbEndMinute.Text = "00"
-
-        Con.Close()
-
     End Sub
+
     '画面ロード時
     Private Sub AddSchedule_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dtn As DateTime = DateTime.Now
@@ -138,7 +142,7 @@ Public Class AddSchedule
         dgvAllSchedules.DataSource = Dt
 
         Con.Close()
-
+        PastScheduleColorChange()
     End Sub
 
     'スケジュール表示画面列選択時
@@ -152,23 +156,8 @@ Public Class AddSchedule
             uppfm.ShowDialog()
 
             ViewAllSchedules()
-            ''画面遷移時のカレンダー選択範囲の取得
-            'Dim selected_startdate = ScheduleCalendar.SelectionRange.Start.ToString()
-            'Dim selected_enddate = ScheduleCalendar.SelectionRange.End.ToString()
-
-            'Dim Con As MySqlConnection = SqlConnection()
-            'Con.Open()
-            'Dim SqlStr = "select regist_startdate as 開始日, regist_enddate As 終了日, regist_starttime As 開始時間, regist_endtime As 終了時間, event_name As イベント,insert_id As 登録ID  from Schedule
-            'where regist_startdate between '" + selected_startdate + "' and '" + selected_enddate + "'order by regist_startdate asc"
-            'Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
-            'Dim Ds As New DataSet
-            'Adapter.Fill(Ds)
-            'dgvAllSchedules.DataSource = Ds.Tables(0)
-            'Con.Close()
         End If
     End Sub
-
-
 
     'スケジュール開始日のプロパティ
     Public Property startdateproperty() As String
@@ -229,36 +218,26 @@ Public Class AddSchedule
         ViewAllSchedules()
     End Sub
 
-    Private Sub dgvAllSchedules_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs)
-        If dgvAllSchedules.CurrentCellAddress.X = 0 AndAlso
-                dgvAllSchedules.IsCurrentCellDirty Then
-            dgvAllSchedules.CommitEdit(DataGridViewDataErrorContexts.Commit)
-        End If
-    End Sub
+    ' テスト項目実施後消す
+    'Private Sub dgvAllSchedules_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs)
+    '    If dgvAllSchedules.CurrentCellAddress.X = 0 AndAlso
+    '            dgvAllSchedules.IsCurrentCellDirty Then
+    '        dgvAllSchedules.CommitEdit(DataGridViewDataErrorContexts.Commit)
+    '    End If
+    'End Sub
 
     Private Sub btnComplete_Click(sender As Object, e As EventArgs) Handles btnComplete.Click
-        Dim result As DialogResult = MessageBox.Show("タスクを完了しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
-        ' Noが選択されたら処理を中断
-        If result = DialogResult.No Then
-            Return
-        End If
-        Dim Con As MySqlConnection = SqlConnection()
-        Dim ins_id As String = ""
-        Dim SqlStr As String = ""
-        Dim check As Boolean = False
+        ' チェックが入っている登録IDを格納するリスト
+        Dim ins_idList As New List(Of String)
         ' 1つ以上チェックが入っているかを調べる変数
         Dim anyChecked As Boolean = False
-        Dim Dt As New DataTable
-        Con.Open()
+        Dim check As Boolean = False
+        ' チェックが入っている行の登録IDをリストに格納する
         For row As Integer = 0 To dgvAllSchedules.Rows.Count - 1
             check = dgvAllSchedules.Rows(row).Cells(0).Value
-            ' チェックが入っている行の削除処理を実施
             If check Then
                 anyChecked = True
-                ins_id = dgvAllSchedules.Rows(row).Cells(7).Value
-                SqlStr = "Delete from Schedule where insert_id = '" + ins_id + "'"
-                Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
-                Adapter.Fill(Dt)
+                ins_idList.Add(dgvAllSchedules.Rows(row).Cells(7).Value)
             End If
         Next
         ' チェックが1つも入っていなかった場合、エラー
@@ -266,9 +245,32 @@ Public Class AddSchedule
             MessageBox.Show("1つ以上選択してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         End If
+
+        Dim result As DialogResult = MessageBox.Show("タスクを完了しますか？", "確認", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+        ' Noが選択されたら処理を中断
+        If result = DialogResult.No Then
+            Return
+        End If
+
+        ' 削除処理開始
+        Dim Con As MySqlConnection = SqlConnection()
+        Dim SqlStr As String = ""
+        Dim Dt As New DataTable
+        Con.Open()
+        ' 削除処理実行
+        For i As Integer = 0 To ins_idList.Count - 1
+            SqlStr = "Delete from Schedule where insert_id = '" + ins_idList(i) + "'"
+            Dim Adapter = New MySqlDataAdapter(SqlStr, Con)
+            Adapter.Fill(Dt)
+        Next
         dgvAllSchedules.DataSource = Dt
         Con.Close()
+
         ViewAllSchedules()
         MessageBox.Show("完了しました", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub dgvAllSchedules_Sorted(sender As Object, e As EventArgs) Handles dgvAllSchedules.Sorted
+        PastScheduleColorChange()
     End Sub
 End Class

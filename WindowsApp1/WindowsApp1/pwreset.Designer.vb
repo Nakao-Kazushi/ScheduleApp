@@ -41,6 +41,7 @@ Partial Class PwReset
         '
         'PwUpdateButton
         '
+        Me.PwUpdateButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PwUpdateButton.Location = New System.Drawing.Point(563, 242)
         Me.PwUpdateButton.Name = "PwUpdateButton"
         Me.PwUpdateButton.Size = New System.Drawing.Size(94, 42)
@@ -50,6 +51,8 @@ Partial Class PwReset
         '
         'TextPw
         '
+        Me.TextPw.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextPw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextPw.CustomBorderColor = System.Drawing.Color.Gray
         Me.TextPw.Location = New System.Drawing.Point(229, 101)
@@ -59,6 +62,8 @@ Partial Class PwReset
         '
         'TextPw2
         '
+        Me.TextPw2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextPw2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextPw2.CustomBorderColor = System.Drawing.Color.Gray
         Me.TextPw2.Location = New System.Drawing.Point(229, 187)
